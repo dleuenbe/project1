@@ -1,0 +1,130 @@
+body {
+    background-color: gray;
+    margin: 0px;
+    padding: 0px;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 14px;
+}
+
+header {
+    display: flex;
+}
+
+header select {
+    margin-left: auto;
+}
+
+.filter-bar {
+    background-color: lightgray;
+}
+
+.filter-bar {
+    display: flex;
+}
+
+.filter-bar > p{
+    margin: 0px;
+    padding: 10px 10px 0 0;
+    line-height: 0px;
+    text-align: center;
+}
+
+header, .note-bar {
+    background-color: white;
+}
+
+header, .filter-bar {
+    margin: 0px;
+    padding: 10px;
+}
+
+.note-bar {
+    margin: 0px;
+}
+
+.filter-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.order-wrapper {
+    display: flex;
+    padding: 0px;
+}
+
+.filter-wrapper>.filter-item:nth-last-child(1){
+    margin-left: auto;
+}
+
+/* Note Entries */
+.note-entry {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    margin: 0;
+    background-color: white;
+}
+
+.note-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #eeeeee;
+}
+
+.note-content-line1, .note-content-line2 {
+    flex-grow: 1;
+    display: flex;
+}
+
+.note-content-line1 {
+    margin-bottom: 10px;
+}
+
+.note-due-date, .note-finished {
+    width: 200px;
+    padding: 5px;
+    background-color: white;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.note-finished {
+    padding: 5px;
+}
+
+.note-title {
+    flex-grow: 1;
+    background-color: white;
+    padding: 5px;
+}
+
+.note-importance {
+    margin-left: auto;
+    padding: 0px 5px 0px;
+    width: 136px;
+}
+
+.note-description {
+    background-color: white;
+    flex-grow: 1;
+    display: block;
+    height: 4.3em;
+    padding: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-edit {
+    margin-left: auto;
+    width: 80px;
+    flex-shrink: 1;
+}
+
+.note-edit > button {
+    width: 100%;
+    height: 100%;
+}
+
