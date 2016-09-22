@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: gray;
+    background-color: white;
     margin: 0px;
     padding: 0px;
     font-family: arial, helvetica, sans-serif;
@@ -77,12 +77,26 @@ header, .filter-bar {
     width: 100%;
 }
 
-.note-entry:nth-child(2n) {
-    background-color: #f4f4f4;
+.note-entry:nth-child(7n + 1) {
+    background-color: red;
 }
-
-.note-entry:nth-child(2n + 1) {
-    background-color: #e4e4e4;
+.note-entry:nth-child(7n + 2) {
+    background-color: orange;
+}
+.note-entry:nth-child(7n + 3) {
+    background-color: yellow;
+}
+.note-entry:nth-child(7n + 4) {
+    background-color: green;
+}
+.note-entry:nth-child(7n + 5) {
+    background-color: lightblue;
+}
+.note-entry:nth-child(7n + 6) {
+    background-color: blue;
+}
+.note-entry:nth-child(7n + 7) {
+    background-color: darkviolet;
 }
 
 .note-title, .note-due-date, .note-finished, .field-table td {
