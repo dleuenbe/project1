@@ -5,7 +5,7 @@
 }
 /* Set the "display" attribute of ".new-note-page" to "block" to show the new-note-page or to "none" if you don't want to see it.*/
 .new-note-page {
-    display: block;
+    display: none;
 }
 
 body {
