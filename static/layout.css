@@ -6,7 +6,7 @@ body {
     font-size: 14px;
 }
 
-.header {
+header, .header-new-note{
     display: flex;
 }
 
@@ -34,15 +34,15 @@ header select {
     text-align: center;
 }
 
-.header, .note-bar {
+header, .note-bar {
     background-color: white;
 }
 
-.overview .header {
+.header-new-note {
     background-color: #eeeeee;
 }
 
-.header, .filter-bar {
+header, .header-new-note, .filter-bar {
     margin: 0px;
     padding: 10px;
 }
@@ -99,12 +99,12 @@ header select {
 }
 
 .note-edit {
-    background-color: red;
     padding: 0px;
 }
 
 .note-edit button {
     margin: 0px;
+    margin-left: 10px;
     padding: 0px;
     width: 80px;
     height: 100%;
