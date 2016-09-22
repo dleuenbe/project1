@@ -6,7 +6,7 @@ body {
     font-size: 14px;
 }
 
-header, .header-new-note{
+header{
     display: flex;
 }
 
@@ -38,11 +38,7 @@ header, .note-bar {
     background-color: white;
 }
 
-.header-new-note {
-    background-color: #eeeeee;
-}
-
-header, .header-new-note, .filter-bar {
+header, .filter-bar {
     margin: 0px;
     padding: 10px;
 }
