@@ -8,84 +8,62 @@
   </head>
   <body>
     <header>
-      <button class="new-note">Create new Note</button>
+      <h1>Notes</h1>
       <select>
         <option value="bw">Black-White</option>
         <option value="color">Color</option>
       </select>
     </header>
-    <section class="filter-bar">
-      <p>Filter</p>
-      <div class="filter-wrapper">
-        <div class="order-wrapper">
-          <button class="filter-item">By finish Date</button>
-          <button class="filter-item">By create Date</button>
-          <button class="filter-item">By Importance</button>
+    <header>
+      <button class="new-note">Create new Note</button>
+    </header>
+    <div class="overview">
+      <section class="filter-bar">
+        <p>Filter</p>
+        <div class="filter-wrapper">
+          <div class="order-wrapper">
+            <button class="filter-item">By finish Date</button>
+            <button class="filter-item">By create Date</button>
+            <button class="filter-item">By Importance</button>
+          </div>
+          <button class="filter-item">Show Finished</button>
         </div>
-        <button class="filter-item">Show Finished</button>
-      </div>
-    </section>
-    <main class="note-bar">
-      <article class="note-entry">
-        <div class="note-content">
-          <div class="note-content-line1">
-            <div class="note-due-date"><span>01.01.2016</span></div>
-            <div class="note-title"><span>title</span></div>
-            <div class="note-importance">
-              <img class="important1" src="important.svg" alt="1">
-              <img class="important2" src="important.svg" alt="2">
-              <img class="important3" src="important.svg" alt="3">
-              <img class="important4" src="important.svg" alt="4">
-              <img class="important5" src="important.svg" alt="5">
-            </div>
-          </div>
-          <div class="note-content-line2">
-            <div class="note-finished"><input type="checkbox" value="finished1">finished</input>&nbsp;at</div>
-            <div class="note-description"><span>description<br>second line</span></div>
-          </div>
-        </div>
-        <div class="note-edit"><button>edit</button></div>
-      </article>
-      <article class="note-entry">
-        <div class="note-content">
-          <div class="note-content-line1">
-            <div class="note-due-date"><span>01.01.2016</span></div>
-            <div class="note-title"><span>title</span></div>
-            <div class="note-importance">
-              <img class="important1" src="important.svg" alt="1">
-              <img class="important2" src="important.svg" alt="2">
-              <img class="important3" src="important.svg" alt="3">
-              <img class="important4" src="important.svg" alt="4">
-              <img class="important5" src="important.svg" alt="5">
-            </div>
-          </div>
-          <div class="note-content-line2">
-            <div class="note-finished"><input type="checkbox" value="finished1">finished</input>&nbsp;at</div>
-            <div class="note-description"><span>description<br>second line</span></div>
-          </div>
-        </div>
-        <div class="note-edit"><button>edit</button></div>
-      </article>
-      <article class="note-entry">
-        <div class="note-content">
-          <div class="note-content-line1">
-            <div class="note-due-date"><span>01.01.2016</span></div>
-            <div class="note-title"><span>title</span></div>
-            <div class="note-importance">
-              <img class="important1" src="important.svg" alt="1">
-              <img class="important2" src="important.svg" alt="2">
-              <img class="important3" src="important.svg" alt="3">
-              <img class="important4" src="important.svg" alt="4">
-              <img class="important5" src="important.svg" alt="5">
-            </div>
-          </div>
-          <div class="note-content-line2">
-            <div class="note-finished"><input type="checkbox" value="finished1">finished</input>&nbsp;at</div>
-            <div class="note-description"><span>description<br>second linie viel text<br>3<br>4<br>5</span></div>
-          </div>
-        </div>
-        <div class="note-edit"><button>edit</button></div>
-      </article>
-    </main>
+      </section>
+      <main class="note-bar">
+        <table class="note-entry">
+          <tr>
+            <td class="note-due-date">
+              <div>01.01.2016</div>
+            </td>
+            <td class="note-title">
+              <div>title</div>
+            </td>
+            <td class="note-importance">
+              <div>
+                <img class="important1" src="important.svg" alt="1">
+                <img class="important2" src="important.svg" alt="2">
+                <img class="important3" src="important.svg" alt="3">
+                <img class="important4" src="important.svg" alt="4">
+                <img class="important5" src="important.svg" alt="5">
+              </div>
+            </td>
+            <td rowspan="2" class="note-edit">
+              <button>edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="note-finished">
+              <input type="checkbox" value="finished1">finished</input>&nbsp;at
+            </td>
+            <td class="note-description" colspan="2">
+              <textarea readonly rows="2">description</textarea>
+            </td>
+          </tr>
+        </table>
+      </main>
+    </div>
+    <div class="new-note">
+
+    </div>
   </body>
 </html>
