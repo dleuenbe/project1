@@ -6,7 +6,7 @@ body {
     font-size: 14px;
 }
 
-header {
+.header {
     display: flex;
 }
 
@@ -34,11 +34,15 @@ header select {
     text-align: center;
 }
 
-header, .note-bar {
+.header, .note-bar {
     background-color: white;
 }
 
-header, .filter-bar {
+.overview .header {
+    background-color: #eeeeee;
+}
+
+.header, .filter-bar {
     margin: 0px;
     padding: 10px;
 }
@@ -104,4 +108,8 @@ header, .filter-bar {
     padding: 0px;
     width: 80px;
     height: 100%;
+}
+
+.overview {
+    display: block;
 }
