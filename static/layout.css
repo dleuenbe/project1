@@ -120,15 +120,32 @@ header, .filter-bar {
     padding: 0;
 }
 
+.note-description > textarea {
+    resize: vertical;
+    width: 100%;
+}
+
 .note-importance {
     padding: 0px 5px 0px;
+}
+
+.note-importance > div{
+    width: 136px;
 }
 
 .note-edit {
     padding: 0px;
 }
 
-.note-edit button, .button-field button {
+.note-edit button {
+    margin: 0px;
+    margin-left: 10px;
+    padding: 0px;
+    width: 80px;
+    height: 100%;
+}
+
+.button-field button {
     margin: 0px;
     padding: 0px;
     width: 100%;
