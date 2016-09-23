@@ -3,17 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Notes App</title>
-    <link rel="stylesheet" href="layout.css">
-<!--    <link rel="stylesheet" href="rainbow.css">-->
+    <link id="stylesheetLink" rel="stylesheet" href="standard.css">
     <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script>
+      $(function() {
+
+      });
+    </script>
   </head>
   <body>
     <div class="overview-page">
       <header>
         <button class="new-note">Create new Note</button>
-        <select>
-          <option value="bw">Black-White</option>
-          <option value="rainbow">Rainbow</option>
+        <select onchange="styleChange(this.value)">
+          <option value="standard.css">Black-White</option>
+          <option value="rainbow.css">Rainbow</option>
         </select>
       </header>
       <section class="filter-bar">
