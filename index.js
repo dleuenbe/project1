@@ -1,3 +1,3 @@
-function styleChange(name) {
-    $("#stylesheetLink").attr("href", name);
+function changeStyle(event) {
+    $("#stylesheetLink").attr("href", event.target.value);
 }

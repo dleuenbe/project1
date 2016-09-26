@@ -8,7 +8,7 @@
     <script type="text/javascript" src="index.js"></script>
     <script>
       $(function() {
-
+        $("header > select").change(changeStyle);
       });
     </script>
   </head>
@@ -16,7 +16,7 @@
     <div class="overview-page">
       <header>
         <button class="new-note">Create new Note</button>
-        <select onchange="styleChange(this.value)">
+        <select id="styleSelecter">
           <option value="standard.css">Black-White</option>
           <option value="rainbow.css">Rainbow</option>
         </select>
