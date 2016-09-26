@@ -6,13 +6,55 @@
     <link id="stylesheetLink" rel="stylesheet" href="standard.css">
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="handlebars.js"></script>
+    <script type="text/javascript" src="daten.js"></script>
     <script>
       $(function() {
         $("header > select").change(changeStyle);
         $(".new-note").click(showNewNotePage);
         $("#cancel-new-note").click(cancelNewNotePage);
         $("#save-new-note").click(saveNewNotePage);
+
+        var notesTemplateText=$("#notes-template").html();
+        $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(notes);
       });
+    </script>
+    <script id="notes-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <table class="note-entry">
+          <tr>
+            <td class="note-due-date">
+              <div>{{ due-date }}</div>
+            </td>
+            <td class="note-title">
+              <div>{{ title }}</div>
+            </td>
+            <td class="note-importance">
+              <div>
+                <img class="important1" src="important.svg" alt="1">
+                <img class="important2" src="important.svg" alt="2">
+                <img class="important3" src="important.svg" alt="3">
+                <img class="important4" src="important.svg" alt="4">
+                <img class="important5" src="important.svg" alt="5">
+              </div>
+            </td>
+            <td rowspan="2" class="note-edit">
+              <button>edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="note-finished">
+              <input type="checkbox" value="finished1" checked="{{ finihsd }}">finished</input>
+              {{#if finished}}
+                (at: {{ finishedAt }})
+              {{/if}}
+            </td>
+            <td class="note-description" colspan="2">
+              <textarea readonly rows="2">{{ description }}</textarea>
+            </td>
+          </tr>
+        </table>
+      {{/each}}
     </script>
   </head>
   <body>
@@ -38,273 +80,9 @@
       <main class="note-bar">
         <table class="note-entry">
           <tr>
-            <td class="note-due-date">
-              <div>01.01.2016</div>
+            <td>
+              <div>keine Daten</div>
             </td>
-            <td class="note-title">
-              <div>title</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
-              <input type="checkbox" value="finished1">finished</input>&nbsp;at
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">description</textarea>
-            </td>
-          </tr>
-        </table>
-        <table class="note-entry">
-          <tr>
-            <td class="note-due-date">
-              <div>01.01.2016</div>
-            </td>
-            <td class="note-title">
-              <div>title</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
-              <input type="checkbox" value="finished1">finished</input>&nbsp;at
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">description</textarea>
-            </td>
-          </tr>
-        </table>
-        <table class="note-entry">
-          <tr>
-            <td class="note-due-date">
-              <div>01.01.2016</div>
-            </td>
-            <td class="note-title">
-              <div>title</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
-              <input type="checkbox" value="finished1">finished</input>&nbsp;at
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">description</textarea>
-            </td>
-          </tr>
-        </table>
-        <table class="note-entry">
-          <tr>
-            <td class="note-due-date">
-              <div>01.01.2016</div>
-            </td>
-            <td class="note-title">
-              <div>title</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
-              <input type="checkbox" value="finished1">finished</input>&nbsp;at
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">description</textarea>
-            </td>
-          </tr>
-        </table>
-        <table class="note-entry">
-          <tr>
-            <td class="note-due-date">
-              <div>01.01.2016</div>
-            </td>
-            <td class="note-title">
-              <div>title</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
-              <input type="checkbox" value="finished1">finished</input>&nbsp;at
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">description</textarea>
-            </td>
-          </tr>
-        </table>
-        <table class="note-entry">
-          <tr>
-            <td class="note-due-date">
-              <div>01.01.2016</div>
-            </td>
-            <td class="note-title">
-              <div>title</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
-              <input type="checkbox" value="finished1">finished</input>&nbsp;at
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">description</textarea>
-            </td>
-          </tr>
-        </table>
-        <table class="note-entry">
-          <tr>
-            <td class="note-due-date">
-              <div>01.01.2016</div>
-            </td>
-            <td class="note-title">
-              <div>title</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
-              <input type="checkbox" value="finished1">finished</input>&nbsp;at
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">description</textarea>
-            </td>
-          </tr>
-        </table>
-        <table class="note-entry">
-          <tr>
-            <td class="note-due-date">
-              <div>01.01.2016</div>
-            </td>
-            <td class="note-title">
-              <div>title</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
-              <input type="checkbox" value="finished1">finished</input>&nbsp;at
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">description</textarea>
-            </td>
-          </tr>
-        </table>
-        <table class="note-entry">
-          <tr>
-            <td class="note-due-date">
-              <div>01.01.2016</div>
-            </td>
-            <td class="note-title">
-              <div>title</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
-              <input type="checkbox" value="finished1">finished</input>&nbsp;at
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">description</textarea>
-            </td>
-          </tr>
         </table>
       </main>
     </div>
