@@ -1,10 +1,4 @@
-/* temporary switch show show or not without javascript */
-/* Set the "display" attribute of ".overview-page" to "block" to show the overview-page or to "none" if you don't want to see it.*/
 .overview-page {
-    display: block;
-}
-/* Set the "display" attribute of ".new-note-page" to "block" to show the new-note-page or to "none" if you don't want to see it.*/
-.new-note-page {
     display: block;
 }
 
@@ -174,8 +168,16 @@ header, .filter-bar {
     padding: 5px;
 }
 
-.button-field button:nth-child(2) {
+#cancel-new-note {
     margin-top: 10px;
     width: 200px;
     float: right;
+}
+
+.field-table {
+    background-color: red;
+}
+
+.new-note-page {
+    display: none;
 }

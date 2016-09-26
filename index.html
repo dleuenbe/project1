@@ -9,6 +9,9 @@
     <script>
       $(function() {
         $("header > select").change(changeStyle);
+        $(".new-note").click(showNewNotePage);
+        $("#cancel-new-note").click(cancelNewNotePage);
+        $("#save-new-note").click(saveNewNotePage);
       });
     </script>
   </head>
@@ -332,8 +335,8 @@
           </tr>
           <tr>
             <td colspan="2" class="button-field">
-              <button type="submit">Speichern</button>
-              <button type="reset">Cancel</button>
+              <button id="save-new-note">Speichern</button>
+              <button id="cancel-new-note">Cancel</button>
             </td>
           </tr>
         </table>
