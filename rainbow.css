@@ -61,7 +61,7 @@ header, .filter-bar {
     padding: 0px;
 }
 
-.filter-wrapper>.filter-item:nth-last-child(1){
+#show-finished{
     margin-left: auto;
 }
 

@@ -15,9 +15,8 @@
         $(".new-note").click(showNewNotePage);
         $("#cancel-new-note").click(cancelNewNotePage);
         $("#save-new-note").click(saveNewNotePage);
-
-        var notesTemplateText=$("#notes-template").html();
-        $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(notes);
+        $("#show-finished, .filter-item").click(renderNotes);
+        renderNotes();
       });
     </script>
     <script id="notes-template" type="text/x-handlebars-template">
@@ -25,7 +24,7 @@
         <table class="note-entry">
           <tr>
             <td class="note-due-date">
-              <div>{{ due-date }}</div>
+              <div>{{ dueDate }}</div>
             </td>
             <td class="note-title">
               <div>{{ title }}</div>
@@ -45,7 +44,7 @@
           </tr>
           <tr>
             <td class="note-finished">
-              <input type="checkbox" value="finished1" checked="{{ finihsd }}">finished</input>
+              <input type="checkbox" value="finished1" {{#if finished }} checked {{/if}}>finished</input>
               {{#if finished}}
                 (at: {{ finishedAt }})
               {{/if}}
@@ -71,11 +70,11 @@
         <p>Order</p>
         <div class="filter-wrapper">
           <div class="order-wrapper">
-            <button class="filter-item">By finish Date</button>
-            <button class="filter-item">By create Date</button>
-            <button class="filter-item">By Importance</button>
+            <input type="radio" name="orderSelection" id="order-by-finishedAt" class="filter-item">By finish Date</input>
+            <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item" checked>By create Date</button>
+            <input type="radio" name="orderSelection" id="order-by-importance" class="filter-item">By Importance</input>
           </div>
-          <button class="filter-item">Show Finished</button>
+          <input id="show-finished" type="checkbox">Show Finished</input>
         </div>
       </section>
       <main class="note-bar">
