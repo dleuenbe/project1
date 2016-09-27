@@ -10,6 +10,7 @@
     <script type="text/javascript" src="daten.js"></script>
     <script>
       $(function() {
+        registerHandlebarIfConf();
         $("header > select").change(changeStyle);
         $(".new-note").click(showNewNotePage);
         $("#cancel-new-note").click(cancelNewNotePage);
@@ -32,10 +33,10 @@
             <td class="note-importance">
               <div>
                 <img class="important1" src="important.svg" alt="1">
-                <img class="important2" src="important.svg" alt="2">
-                <img class="important3" src="important.svg" alt="3">
-                <img class="important4" src="important.svg" alt="4">
-                <img class="important5" src="important.svg" alt="5">
+                <img class="important2 {{#ifCond importance '<=' 1 }} grayscale {{/ifCond}}" src="important.svg" alt="2">
+                <img class="important3 {{#ifCond importance '<=' 2 }} grayscale {{/ifCond}}" src="important.svg" alt="3">
+                <img class="important4 {{#ifCond importance '<=' 3 }} grayscale {{/ifCond}}" src="important.svg" alt="4">
+                <img class="important5 {{#ifCond importance '<=' 4 }} grayscale {{/ifCond}}" src="important.svg" alt="5">
               </div>
             </td>
             <td rowspan="2" class="note-edit">
@@ -67,7 +68,7 @@
         </select>
       </header>
       <section class="filter-bar">
-        <p>Filter</p>
+        <p>Order</p>
         <div class="filter-wrapper">
           <div class="order-wrapper">
             <button class="filter-item">By finish Date</button>

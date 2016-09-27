@@ -128,7 +128,7 @@ header, .filter-bar {
     width: 136px;
 }
 
-.note-importance > div > img:last-child, .important-field > img:last-child {
+.grayscale {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
 }
