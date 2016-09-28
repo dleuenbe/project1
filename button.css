@@ -3,7 +3,11 @@
 }
 
 .toggle + label {
-    margin-right: 2px;
+    padding: 5px;
+    font-size:13.3333px;
+    font-family: Arial;
+    border-width: 1px;
+    border-style: outset;
     background-image: linear-gradient(to top,#dedede,#f6f6f6);
 }
 
@@ -17,10 +21,6 @@
 
 .toggle:checked + label:hover {
     background-image: linear-gradient(to bottom,#cecece,#e6e6e6);
-}
-
-.toggle + label {
-    padding: 5px;
 }
 
 .toggle-left + label {
