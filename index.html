@@ -16,7 +16,7 @@
         $(".new-note").click(showNewNotePage);
         $("#cancel-new-note").click(cancelNewNotePage);
         $("#save-new-note").click(saveNewNotePage);
-        $("#show-finished, .filter-item").click(renderNotes);
+        $("#show-finished + label, .filter-item + label").click(renderNotes).mousedown(false);
         renderNotes();
       });
     </script>
