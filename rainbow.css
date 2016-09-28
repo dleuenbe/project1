@@ -65,7 +65,7 @@ header, .filter-bar {
     padding: 0px;
 }
 
-#show-finished{
+#show-finished + label{
     margin-left: auto;
 }
 

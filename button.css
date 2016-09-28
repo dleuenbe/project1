@@ -1,0 +1,35 @@
+.toggle {
+    display: none;
+}
+
+.toggle + label {
+    margin-right: 2px;
+    background-image: linear-gradient(to top,#dedede,#f6f6f6);
+}
+
+.toggle + label:hover {
+    background-image: linear-gradient(to top,#cecece,#e6e6e6);
+}
+
+.toggle:checked + label {
+    background-image: linear-gradient(to bottom,#dedede,#f6f6f6);
+}
+
+.toggle:checked + label:hover {
+    background-image: linear-gradient(to bottom,#cecece,#e6e6e6);
+}
+
+.toggle + label {
+    padding: 5px;
+}
+
+.toggle-left + label {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.toggle-right + label {
+    margin-right: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

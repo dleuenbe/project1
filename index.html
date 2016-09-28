@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Notes App</title>
     <link id="stylesheetLink" rel="stylesheet" href="standard.css">
+    <link rel="stylesheet" href="button.css">
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="handlebars.js"></script>
@@ -67,14 +68,17 @@
         </select>
       </header>
       <section class="filter-bar">
-        <p>Order</p>
         <div class="filter-wrapper">
           <div class="order-wrapper">
-            <input type="radio" name="orderSelection" id="order-by-finishedAt" class="filter-item">By finish Date</input>
-            <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item" checked>By create Date</button>
-            <input type="radio" name="orderSelection" id="order-by-importance" class="filter-item">By Importance</input>
+            <input type="radio" name="orderSelection" id="order-by-finishedAt" class="filter-item toggle toggle-left">
+            <label class="btn" for="order-by-finishedAt">By finished Date</label>
+            <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item toggle" checked>
+            <label class="btn" for="order-by-dueDate">By create Date</label>
+            <input type="radio" name="orderSelection" id="order-by-importance" class="filter-item toggle toggle-right">
+            <label class="btn" for="order-by-importance">By Importance</label>
           </div>
-          <input id="show-finished" type="checkbox">Show Finished</input>
+          <input id="show-finished" type="checkbox" class="toggle toggle-left toggle-right">
+          <label class="btn" for="show-finished">Show Finished</label>
         </div>
       </section>
       <main class="note-bar">
