@@ -2,6 +2,10 @@
     display: block;
 }
 
+.new-note-page {
+    display: none;
+}
+
 body {
     background-color: white;
     margin: 0px;
@@ -176,8 +180,4 @@ header, .filter-bar {
 
 .field-table {
     background-color: red;
-}
-
-.new-note-page {
-    display: none;
 }
