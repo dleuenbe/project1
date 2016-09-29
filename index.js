@@ -18,7 +18,7 @@ function cancelNewNotePage() {
 
 function saveNewNotePage() {
     var note = $("#newNoteForm").serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
-    notes[notes.length]= note;
+    notes.push(note);
     hideNewNotePage();
     renderNotes();
 }
