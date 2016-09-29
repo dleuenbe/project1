@@ -17,6 +17,7 @@ function cancelNewNotePage() {
 }
 
 function saveNewNotePage() {
+    var s = JSON.stringify($("#newNoteForm").serializeArray());
     hideNewNotePage();
 }
 
@@ -29,6 +30,12 @@ function renderNotes() {
 function compareById(n1, n2) {
     var orderByField = $(".filter-item:checked").prop('id').substr('order-by-'.length);
     return n2[orderByField] == n1[orderByField] ? 0 : n2[orderByField] < n1[orderByField] ? -1 : 1;
+}
+
+function updateImportanceView() {
+    var pos = parseInt($("input[type='radio'].importanceInput:checked").attr("value"));
+    $(".important-field > label:nth-child(-n+"+pos+") > img").removeClass("grayscale");
+    $(".important-field > label:nth-last-child(-n+"+(5-pos)+") > img").addClass("grayscale");
 }
 
 function registerHandlebarIfConf() {
