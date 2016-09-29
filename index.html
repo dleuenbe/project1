@@ -15,7 +15,8 @@
         $("header > select").change(changeStyle);
         $(".new-note").click(showNewNotePage);
         $("#cancel-new-note").click(cancelNewNotePage);
-        $("#show-finished + label, .filter-item + label").click(renderNotes).mousedown(false);
+        $("#show-finished, .filter-item").change(renderNotes);
+        $("#show-finished + label, .filter-item + label").mousedown(false);
         $(".important-field > label").click(updateImportanceView);
         loadDataFromStorage();
         updateImportanceView();
