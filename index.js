@@ -17,8 +17,10 @@ function cancelNewNotePage() {
 }
 
 function saveNewNotePage() {
-    var s = JSON.stringify($("#newNoteForm").serializeArray());
+    var note = $("#newNoteForm").serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
+    notes[notes.length]= note;
     hideNewNotePage();
+    renderNotes();
 }
 
 function renderNotes() {
