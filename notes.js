@@ -2,6 +2,19 @@
 
 var notes;
 
+$(function() {
+    registerHandlebarIfLte();
+    $("header > select").change(changeStyle);
+    $(".new-note").click(showNewNotePage);
+    $("#cancel-new-note").click(cancelNewNotePage);
+    $("#show-finished, .filter-item").change(renderNotes);
+    $("#show-finished + label, .filter-item + label").mousedown(false);
+    $(".important-field > label").click(updateImportanceView);
+    loadDataFromStorage();
+    updateImportanceView();
+    renderNotes();
+})
+
 function changeStyle(event) {
     $("#stylesheetLink").attr("href", event.target.value);
 }

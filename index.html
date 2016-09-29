@@ -9,20 +9,6 @@
     <script type="text/javascript" src="notes.js"></script>
     <script type="text/javascript" src="handlebars.js"></script>
     <script type="text/javascript" src="daten.js"></script>
-    <script>
-      $(function() {
-        registerHandlebarIfLte();
-        $("header > select").change(changeStyle);
-        $(".new-note").click(showNewNotePage);
-        $("#cancel-new-note").click(cancelNewNotePage);
-        $("#show-finished, .filter-item").change(renderNotes);
-        $("#show-finished + label, .filter-item + label").mousedown(false);
-        $(".important-field > label").click(updateImportanceView);
-        loadDataFromStorage();
-        updateImportanceView();
-        renderNotes();
-      });
-    </script>
     <script id="notes-template" type="text/x-handlebars-template">
       {{#each this}}
         <table class="note-entry">
