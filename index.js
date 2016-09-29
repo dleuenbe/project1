@@ -60,9 +60,7 @@ function saveToLocalStorage() {
 
 
 function registerHandlebarIfLte() {
-    Handlebars.registerHelper('ifLte', function (v1, operator, v2, options) {
-        if (operator === '<=') {
-            return (v1 <= v2) ? options.fn(this) : options.inverse(this);
-        }
+    Handlebars.registerHelper('ifLte', function (v1, v2, options) {
+        return (v1 <= v2) ? options.fn(this) : options.inverse(this);
     });
 }
