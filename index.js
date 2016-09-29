@@ -1,3 +1,5 @@
+var notes;
+
 function changeStyle(event) {
     $("#stylesheetLink").attr("href", event.target.value);
 }
@@ -21,6 +23,7 @@ function saveNewNotePage() {
     notes.push(note);
     hideNewNotePage();
     renderNotes();
+    saveToLocalStorage();
 }
 
 function renderNotes() {
@@ -39,6 +42,20 @@ function updateImportanceView() {
     $(".important-field > label:nth-child(-n+"+pos+") > img").removeClass("grayscale");
     $(".important-field > label:nth-last-child(-n+"+(5-pos)+") > img").addClass("grayscale");
 }
+
+function loadDataFromStorage() {
+    var notesFromLocalStorage = localStorage.getItem("notes");
+    if (notesFromLocalStorage === null) {
+        notes = defaultNotesFromJS;
+    } else {
+        notes = JSON.parse(notesFromLocalStorage);
+    }
+}
+
+function saveToLocalStorage() {
+    localStorage.setItem("notes", JSON.stringify(notes));
+}
+
 
 function registerHandlebarIfConf() {
     Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {

@@ -17,6 +17,7 @@
         $("#cancel-new-note").click(cancelNewNotePage);
         $("#show-finished + label, .filter-item + label").click(renderNotes).mousedown(false);
         $(".important-field > label").click(updateImportanceView);
+        loadDataFromStorage();
         updateImportanceView();
         renderNotes();
       });
