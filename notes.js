@@ -7,10 +7,10 @@ $(function() {
     $("header > select").change(changeStyle);
     $(".new-note").click(showNewNotePage);
     $("#cancel-new-note").click(cancelNewNotePage);
+    $("#save-new-note").click(saveNewNotePage);
     $("#show-finished, .filter-item").change(renderNotes);
     $("#show-finished + label, .filter-item + label").mousedown(false);
     $(".priority-field > label").click(updatePriorityView);
-    $(".priority-field > label").hover()
     loadDataFromStorage();
     updatePriorityView();
     renderNotes();
@@ -32,6 +32,7 @@ function hideNewNotePage() {
 
 function cancelNewNotePage() {
     hideNewNotePage();
+    return false;
 }
 
 function saveNewNotePage() {
@@ -40,6 +41,7 @@ function saveNewNotePage() {
     hideNewNotePage();
     renderNotes();
     saveToLocalStorage();
+    return false;
 }
 
 function renderNotes() {
