@@ -11,64 +11,50 @@
     <script type="text/javascript" src="daten.js"></script>
     <script id="notes-template" type="text/x-handlebars-template">
       {{#each this}}
-        <table class="note-entry">
-          <tr>
-            <td class="note-due-date">
-              <div>{{ dueDate }}</div>
-            </td>
-            <td class="note-title">
-              <div>{{ title }}</div>
-            </td>
-            <td class="note-importance">
-              <div>
-                <img class="important1" src="important.svg" alt="1">
-                <img class="important2 {{#ifLte importance 1 }} grayscale {{/ifLte}}" src="important.svg" alt="2">
-                <img class="important3 {{#ifLte importance 2 }} grayscale {{/ifLte}}" src="important.svg" alt="3">
-                <img class="important4 {{#ifLte importance 3 }} grayscale {{/ifLte}}" src="important.svg" alt="4">
-                <img class="important5 {{#ifLte importance 4 }} grayscale {{/ifLte}}" src="important.svg" alt="5">
-              </div>
-            </td>
-            <td rowspan="2" class="note-edit">
-              <button>edit</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="note-finished">
+        <div class="note-entry-div">
+          <div class="first-column">
+            <div class="due-date-div">{{ dueDate }}</div>
+            <div class="finished-at-div">
               <input type="checkbox" value="finished1" disabled {{#if finished }} checked {{/if}}>finished</input>
-              {{#if finished}}
-                (at: {{ finishedAt }})
-              {{/if}}
-            </td>
-            <td class="note-description" colspan="2">
-              <textarea readonly rows="2">{{ description }}</textarea>
-            </td>
-          </tr>
-        </table>
+              {{#if finished}}(at: {{ finishedAt }}){{/if}}
+            </div>
+          </div>
+          <div class="second-column">
+            <div class="title-div">{{ title }}</div>
+            <div class="importance-div">
+              <img class="important1" src="important.svg" alt="1">
+              <img class="important2 {{#ifLte importance 1 }} grayscale {{/ifLte}}" src="important.svg" alt="2">
+              <img class="important3 {{#ifLte importance 2 }} grayscale {{/ifLte}}" src="important.svg" alt="3">
+              <img class="important4 {{#ifLte importance 3 }} grayscale {{/ifLte}}" src="important.svg" alt="4">
+              <img class="important5 {{#ifLte importance 4 }} grayscale {{/ifLte}}" src="important.svg" alt="5">
+            </div>
+            <textarea class="description-textarea"readonly rows="2">{{ description }}</textarea>
+          </div>
+          <button class="edit-button">edit</button>
+        </div>
       {{/each}}
     </script>
   </head>
   <body>
+    <header>
+      <button class="new-note">Create new Note</button>
+      <select id="styleSelecter">
+        <option value="standard.css">Black-White</option>
+        <option value="rainbow.css">Rainbow</option>
+      </select>
+    </header>
     <div class="overview-page">
-      <header>
-        <button class="new-note">Create new Note</button>
-        <select id="styleSelecter">
-          <option value="standard.css">Black-White</option>
-          <option value="rainbow.css">Rainbow</option>
-        </select>
-      </header>
       <section class="filter-bar">
-        <div class="filter-wrapper">
-          <div class="order-wrapper">
-            <input type="radio" name="orderSelection" id="order-by-finishedAt" class="filter-item toggle toggle-left">
-            <label class="btn" for="order-by-finishedAt">By finished Date</label>
-            <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item toggle" checked>
-            <label class="btn" for="order-by-dueDate">By create Date</label>
-            <input type="radio" name="orderSelection" id="order-by-importance" class="filter-item toggle toggle-right">
-            <label class="btn" for="order-by-importance">By Importance</label>
-          </div>
-          <input id="show-finished" type="checkbox" class="toggle toggle-left toggle-right">
-          <label class="btn" for="show-finished">Show Finished</label>
+        <div class="order-wrapper">
+          <input type="radio" name="orderSelection" id="order-by-finishedAt" class="filter-item toggle toggle-left">
+          <label class="btn" for="order-by-finishedAt">By finished Date</label>
+          <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item toggle" checked>
+          <label class="btn" for="order-by-dueDate">By create Date</label>
+          <input type="radio" name="orderSelection" id="order-by-importance" class="filter-item toggle toggle-right">
+          <label class="btn" for="order-by-importance">By Importance</label>
         </div>
+        <input id="show-finished" type="checkbox" class="toggle toggle-left toggle-right">
+        <label class="btn" for="show-finished">Show Finished</label>
       </section>
       <main class="note-bar">
         <table class="note-entry">
@@ -120,13 +106,16 @@
             <td><input name="dueDate" type="date"></td>
           </tr>
           <tr>
-            <td colspan="2" class="button-field">
-              <button type="submit" id="save-new-note">Speichern</button>
-              <button id="cancel-new-note">Cancel</button>
+            <td colspan="3">
+              <div  class="button-field">
+                <button type="submit" id="save-new-note">Speichern</button>
+                <button id="cancel-new-note">Cancel</button>
+              </div>
             </td>
           </tr>
         </table>
       </form>
     </div>
+    <footer>Version 0.4</footer>
   </body>
 </html>

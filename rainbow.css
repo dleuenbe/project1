@@ -1,3 +1,91 @@
+/* start: notes list */
+.note-entry-div {
+    display: flex;
+    padding: 0.5em;
+}
+
+.first-column {
+    flex-basis: 14em;
+    display: flex;
+    margin-right: 0.5em;
+    flex-flow: wrap;
+}
+
+.due-date-div, .finished-at-div {
+    box-sizing: border-box;
+    flex: 0 0 100%;
+    padding: 0.5em;
+}
+
+.finished-at-div {
+    margin-top: 0.5em;
+}
+
+.second-column {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.title-div {
+    background: red;
+    flex: 1;
+    min-height: 1em;
+    padding: 0.5em;
+    display: flex;
+}
+
+.importance-div {
+    padding: 0 0.5em;
+}
+
+.description-textarea {
+    margin-top: 0.5em;
+    background-color: white;
+    box-sizing: border-box;
+    flex: 1 0 100%;
+    resize: vertical;
+    padding: 0.25em 0.5em 0.25em;
+}
+
+.edit-button {
+    flex-basis: 6em;
+    margin-left: 0.5em;
+}
+
+.title-div, .due-date-div, .finished-at-div {
+    background-color: white;
+    padding: 0.5em;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+.note-entry-div:nth-child(7n + 1) {
+    background-color: red;
+}
+.note-entry-div:nth-child(7n + 2) {
+    background-color: orange;
+}
+.note-entry-div:nth-child(7n + 3) {
+    background-color: yellow;
+}
+.note-entry-div:nth-child(7n + 4) {
+    background-color: green;
+}
+.note-entry-div:nth-child(7n + 5) {
+    background-color: lightblue;
+}
+.note-entry-div:nth-child(7n + 6) {
+    background-color: blue;
+}
+.note-entry-div:nth-child(7n + 7) {
+    background-color: darkviolet;
+}
+/* end: notes list */
+/* start: page control */
 .overview-page {
     display: block;
 }
@@ -5,9 +93,10 @@
 .new-note-page {
     display: none;
 }
-
+/* end: page control */
+/* start: common */
 body {
-    background-color: white;
+    background-color: gray;
     margin: 0px;
     padding: 0px;
     font-family: arial, helvetica, sans-serif;
@@ -16,6 +105,10 @@ body {
 
 header{
     display: flex;
+    justify-content: space-between;
+    background-color: white;
+    margin: 0px;
+    padding: 10px;
 }
 
 header > h1 {
@@ -23,161 +116,62 @@ header > h1 {
     margin: 0px;
 }
 
-header select {
-    margin-left: auto;
-}
-
-.filter-bar {
-    background-color: #c0c0c0;
-}
-
-.filter-bar {
-    display: flex;
-}
-
-.filter-bar > p{
-    margin: 0px;
-    padding: 10px 10px 0 0;
-    line-height: 0px;
-    text-align: center;
-}
-
-header, .note-bar {
-    background-color: white;
-}
-
-header, .filter-bar {
-    margin: 0px;
-    padding: 10px;
-}
-
-.note-bar {
-    margin: 0px;
-}
-
-.filter-wrapper {
-    display: flex;
-    width: 100%;
-}
-
-.order-wrapper {
-    display: flex;
-    padding: 0px;
-}
-
-#show-finished + label{
-    margin-left: auto;
-}
-
-.note-entry, .field-table  {
-    padding: 5px;
-    margin: 0;
-    width: 100%;
-}
-
-.note-entry:nth-child(7n + 1) {
-    background-color: red;
-}
-.note-entry:nth-child(7n + 2) {
-    background-color: orange;
-}
-.note-entry:nth-child(7n + 3) {
-    background-color: yellow;
-}
-.note-entry:nth-child(7n + 4) {
-    background-color: green;
-}
-.note-entry:nth-child(7n + 5) {
-    background-color: lightblue;
-}
-.note-entry:nth-child(7n + 6) {
-    background-color: blue;
-}
-.note-entry:nth-child(7n + 7) {
-    background-color: darkviolet;
-}
-
-.note-title, .note-due-date, .note-finished, .field-table td {
-    background-color: white;
-    padding: 5px;
-}
-
-.note-due-date, .note-finished {
-    margin: 5px;
-}
-
-.note-due-date > div{
-    width: 200px;
-}
-
-.note-title, .note-description {
-    width: 100%;
-}
-
-.note-description {
-    padding: 0;
-}
-
-.note-description > textarea {
-    resize: vertical;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.note-importance {
-    padding: 0px 5px 0px;
-}
-
-.note-importance > div{
-    width: 136px;
+footer {
+    padding: 0.5em;
+    background: #c0c0c0;
 }
 
 .grayscale {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
 }
-
-.note-edit {
-    padding: 0px;
-}
-
-.note-edit button {
+/* end: common */
+/* start: filter and order */
+.filter-bar {
+    background-color: #c0c0c0;
     margin: 0px;
-    margin-left: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-wrapper {
+    display: flex;
     padding: 0px;
-    width: 80px;
-    height: 100%;
 }
-
-.button-field button {
-    margin: 0px;
-    padding: 0px;
+/* end: filter and order */
+/* start: note edit page */
+.field-table  {
+    padding: 5px;
+    margin: 0;
     width: 100%;
-    height: 2em;
-}
-
-.field-table {
-    background-color: #e4e4e4;
-}
-
-.field-table tr td:first-child {
-    width: 200px;
-}
-
-#title-field, #description-field {
-    width: 100%;
+    background-color: red;
 }
 
 .field-table td {
+    background-color: white;
     padding: 5px;
 }
 
-#cancel-new-note {
-    margin-top: 10px;
-    width: 200px;
-    float: right;
+
+.button-field {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: flex-end;
 }
 
-.field-table {
-    background-color: red;
+.button-field button {
+    margin: 0 0 0 0.5em;
+    padding: 0 5em 0;
+    height: 2em;
 }
+
+.field-table tr td:first-child {
+    width: 14em;
+}
+
+#title-field, #description-field {
+    box-sizing: border-box;
+    width: 100%;
+}
+/* end: note edit page*/

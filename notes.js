@@ -10,6 +10,7 @@ $(function() {
     $("#show-finished, .filter-item").change(renderNotes);
     $("#show-finished + label, .filter-item + label").mousedown(false);
     $(".important-field > label").click(updateImportanceView);
+    $(".important-field > label").hover()
     loadDataFromStorage();
     updateImportanceView();
     renderNotes();
