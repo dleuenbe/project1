@@ -21,12 +21,12 @@
           </div>
           <div class="second-column">
             <div class="title-div">{{ title }}</div>
-            <div class="importance-div">
-              <img class="important1" src="important.svg" alt="1">
-              <img class="important2 {{#ifLte importance 1 }} grayscale {{/ifLte}}" src="important.svg" alt="2">
-              <img class="important3 {{#ifLte importance 2 }} grayscale {{/ifLte}}" src="important.svg" alt="3">
-              <img class="important4 {{#ifLte importance 3 }} grayscale {{/ifLte}}" src="important.svg" alt="4">
-              <img class="important5 {{#ifLte importance 4 }} grayscale {{/ifLte}}" src="important.svg" alt="5">
+            <div class="priority-div">
+              <img class="priority1" src="priority.svg" alt="1">
+              <img class="priority2 {{#ifLte priority 1 }} grayscale {{/ifLte}}" src="priority.svg" alt="2">
+              <img class="priority3 {{#ifLte priority 2 }} grayscale {{/ifLte}}" src="priority.svg" alt="3">
+              <img class="priority4 {{#ifLte priority 3 }} grayscale {{/ifLte}}" src="priority.svg" alt="4">
+              <img class="priority5 {{#ifLte priority 4 }} grayscale {{/ifLte}}" src="priority.svg" alt="5">
             </div>
             <textarea class="description-textarea"readonly rows="2">{{ description }}</textarea>
           </div>
@@ -50,8 +50,8 @@
           <label class="btn" for="order-by-finishedAt">By finished Date</label>
           <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item toggle" checked>
           <label class="btn" for="order-by-dueDate">By create Date</label>
-          <input type="radio" name="orderSelection" id="order-by-importance" class="filter-item toggle toggle-right">
-          <label class="btn" for="order-by-importance">By Importance</label>
+          <input type="radio" name="orderSelection" id="order-by-priority" class="filter-item toggle toggle-right">
+          <label class="btn" for="order-by-priority">By Priority</label>
         </div>
         <input id="show-finished" type="checkbox" class="toggle toggle-left toggle-right">
         <label class="btn" for="show-finished">Show Finished</label>
@@ -78,26 +78,26 @@
           </tr>
           <tr>
             <td>Wichtigkeit</td>
-            <td class="important-field">
-              <label for="importance1">
-                <input type="radio" class="importanceInput" name="importance" id="importance1" value="1" checked>
-                <img class="important1" src="important.svg" alt="1">
+            <td class="priority-field">
+              <label for="priority1">
+                <input type="radio" class="priorityInput" name="priority" id="priority1" value="1" checked>
+                <img class="priority1" src="priority.svg" alt="1">
               </label>
-              <label for="importance2">
-                <input type="radio" class="importanceInput" name="importance" id="importance2" value="2">
-                <img class="important2" src="important.svg" alt="2">
+              <label for="priority2">
+                <input type="radio" class="priorityInput" name="priority" id="priority2" value="2">
+                <img class="priority2" src="priority.svg" alt="2">
               </label>
-              <label for="importance3">
-                <input type="radio" class="importanceInput" name="importance" id="importance3"  value="3">
-                <img class="important3" src="important.svg" alt="3">
+              <label for="priority3">
+                <input type="radio" class="priorityInput" name="priority" id="priority3"  value="3">
+                <img class="priority3" src="priority.svg" alt="3">
               </label>
-              <label for="importance4">
-                <input type="radio" class="importanceInput" name="importance" id="importance4"  value="4">
-                <img class="important4" src="important.svg" alt="4">
+              <label for="priority4">
+                <input type="radio" class="priorityInput" name="priority" id="priority4"  value="4">
+                <img class="priority4" src="priority.svg" alt="4">
               </label>
-              <label for="importance5">
-                <input type="radio" class="importanceInput" name="importance" id="importance5"  value="5">
-                <img class="important5" src="important.svg" alt="5">
+              <label for="priority5">
+                <input type="radio" class="priorityInput" name="priority" id="priority5"  value="5">
+                <img class="priority5" src="priority.svg" alt="5">
               </label>
             </td>
           </tr>

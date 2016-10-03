@@ -9,10 +9,10 @@ $(function() {
     $("#cancel-new-note").click(cancelNewNotePage);
     $("#show-finished, .filter-item").change(renderNotes);
     $("#show-finished + label, .filter-item + label").mousedown(false);
-    $(".important-field > label").click(updateImportanceView);
-    $(".important-field > label").hover()
+    $(".priority-field > label").click(updatePriorityView);
+    $(".priority-field > label").hover()
     loadDataFromStorage();
-    updateImportanceView();
+    updatePriorityView();
     renderNotes();
 })
 
@@ -53,10 +53,10 @@ function compareById(n1, n2) {
     return n2[orderByField] == n1[orderByField] ? 0 : n2[orderByField] < n1[orderByField] ? -1 : 1;
 }
 
-function updateImportanceView() {
-    var pos = parseInt($("input[type='radio'].importanceInput:checked").attr("value"));
-    $(".important-field > label:nth-child(-n+"+pos+") > img").removeClass("grayscale");
-    $(".important-field > label:nth-last-child(-n+"+(5-pos)+") > img").addClass("grayscale");
+function updatePriorityView() {
+    var pos = parseInt($("input[type='radio'].priorityInput:checked").attr("value"));
+    $(".priority-field > label:nth-child(-n+"+pos+") > img").removeClass("grayscale");
+    $(".priority-field > label:nth-last-child(-n+"+(5-pos)+") > img").addClass("grayscale");
 }
 
 function loadDataFromStorage() {
