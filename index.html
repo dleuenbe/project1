@@ -30,7 +30,7 @@
             </div>
             <textarea class="description-textarea"readonly rows="2">{{ description }}</textarea>
           </div>
-          <button class="edit-button">edit</button>
+          <button class="edit-button" value="{{ id }}">edit</button>
         </div>
       {{/each}}
     </script>
@@ -103,7 +103,7 @@
           </tr>
           <tr>
             <td>Erledigt bis</td>
-            <td><input name="dueDate" type="date"></td>
+            <td><input id="dueDate-field" name="dueDate" type="date"></td>
           </tr>
           <tr>
             <td colspan="3">
@@ -114,6 +114,7 @@
             </td>
           </tr>
         </table>
+        <input type="hidden" id="id-field" name="id" value="">
       </form>
     </div>
     <footer>Version 0.4</footer>

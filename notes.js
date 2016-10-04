@@ -5,7 +5,7 @@ var notes;
 $(function() {
     registerHandlebarIfLte();
     $("header > select").change(changeStyle);
-    $(".new-note").click(showNewNotePage);
+    $(".new-note").click(createNewNote);
     $("#cancel-new-note").click(cancelNewNotePage);
     $("#save-new-note").click(saveNewNotePage);
     $("#show-finished, .filter-item").change(renderNotes);
@@ -20,8 +20,29 @@ function changeStyle(event) {
     $("#stylesheetLink").attr("href", event.target.value);
 }
 
-function showNewNotePage() {
+function editNewNotePage(event) {
+    var id = event.target.value;
+    showNewNotePage(id);
+}
+
+function createNewNote() {
+    showNewNotePage();
+}
+
+function showNewNotePage(id) {
     $(".overview-page").hide();
+    var noteToEdit  = new Object();
+    if (id == undefined) {
+        noteToEdit["id"] = Math.max.apply(Math,notes.map(function(n){return n.id;}))+1;
+    } else {
+        noteToEdit = notes.filter(f => f.id == id)[0];
+    }
+    $("#id-field").val(noteToEdit.id);
+    $("#title-field").val(noteToEdit.title);
+    $("#description-field").val(noteToEdit.description);
+    $("#dueDate-field").val(noteToEdit.dueDate);
+    $("#priority"+noteToEdit.priority).prop("checked", true);
+    updatePriorityView();
     $(".new-note-page").show();
 }
 
@@ -37,17 +58,28 @@ function cancelNewNotePage() {
 
 function saveNewNotePage() {
     var note = $("#newNoteForm").serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
-    notes.push(note);
+    updateNotes(note);
     hideNewNotePage();
     renderNotes();
     saveToLocalStorage();
     return false;
 }
 
+function updateNotes(note) {
+    for (var i=0; i < notes.length; i++) {
+        if (notes[i].id == note.id) {
+            notes.splice(i, 1, note);
+            return;
+        }
+    }
+    notes.push(note);
+}
+
 function renderNotes() {
     var renderingNotes = notes.filter(d => $('#show-finished').prop('checked') || !d.finished).sort(compareById);
     var notesTemplateText = $("#notes-template").html();
     $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(renderingNotes);
+    $(".edit-button").click(editNewNotePage);
 }
 
 function compareById(n1, n2) {
