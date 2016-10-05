@@ -8,6 +8,8 @@ $(function() {
     $(".new-note").click(createNewNote);
     $("#cancel-new-note").click(cancelNewNotePage);
     $("#save-new-note").click(saveNewNotePage);
+    $("#setFinishedAtDate").click(setFinishedAtDate);
+    $("#clearFinishedAtDate").click(clearFinishedAtDate);
     $("#show-finished, .filter-item").change(renderNotes);
     $("#show-finished + label, .filter-item + label").mousedown(false);
     $(".priority-field > label").click(updatePriorityView);
@@ -44,7 +46,7 @@ function showNewNotePage(id) {
     $("#dueDate-field").val(noteToEdit.dueDate);
     $("#priority"+noteToEdit.priority).prop("checked", true);
     $("#finishedAt-field").val(noteToEdit.finishedAt);
-    $("#createDate-field").val(noteToEdit.createDate)
+    $("#createDate-field").val(noteToEdit.createDate);
     updatePriorityView();
     $(".new-note-page").show();
 }
@@ -65,6 +67,20 @@ function saveNewNotePage() {
     hideNewNotePage();
     renderNotes();
     saveToLocalStorage();
+    return false;
+}
+
+function clearFinishedAtDate() {
+    $("#finishedAt-field").val("");
+    return false;
+}
+
+function setFinishedAtDate() {
+    var date = new Date();
+    var day = ("0" + date.getDate()).slice(-2);
+    var month = ("0" + (date.getMonth()+1)).slice(-2);
+    var year = date.getFullYear();
+    $("#finishedAt-field").val(year+"-"+month+"-"+day);
     return false;
 }
 
