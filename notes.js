@@ -33,7 +33,8 @@ function showNewNotePage(id) {
     $(".overview-page").hide();
     var noteToEdit  = new Object();
     if (id == undefined) {
-        noteToEdit["id"] = Math.max.apply(Math,notes.map(function(n){return n.id;}))+1;
+        noteToEdit.id = Math.max.apply(Math,notes.map(function(n){return n.id;}))+1;
+        noteToEdit.createDate = new Date().getTime();
     } else {
         noteToEdit = notes.filter(f => f.id == id)[0];
     }
@@ -42,6 +43,7 @@ function showNewNotePage(id) {
     $("#description-field").val(noteToEdit.description);
     $("#dueDate-field").val(noteToEdit.dueDate);
     $("#priority"+noteToEdit.priority).prop("checked", true);
+    $("#createDate-field").val(noteToEdit.createDate)
     updatePriorityView();
     $(".new-note-page").show();
 }

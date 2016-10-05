@@ -47,22 +47,19 @@
       <section class="filter-bar">
         <div class="order-wrapper">
           <input type="radio" name="orderSelection" id="order-by-finishedAt" class="filter-item toggle toggle-left">
-          <label class="btn" for="order-by-finishedAt">By finished Date</label>
+          <label for="order-by-finishedAt">By finished Date</label>
+          <input type="radio" name="orderSelection" id="order-by-createDate" class="filter-item toggle" checked>
+          <label for="order-by-createDate">By create Date</label>
           <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item toggle" checked>
-          <label class="btn" for="order-by-dueDate">By create Date</label>
+          <label for="order-by-dueDate">By due Date</label>
           <input type="radio" name="orderSelection" id="order-by-priority" class="filter-item toggle toggle-right">
-          <label class="btn" for="order-by-priority">By Priority</label>
+          <label for="order-by-priority">By Priority</label>
         </div>
         <input id="show-finished" type="checkbox" class="toggle toggle-left toggle-right">
         <label class="btn" for="show-finished">Show Finished</label>
       </section>
       <main class="note-bar">
-        <table class="note-entry">
-          <tr>
-            <td>
-              <div>keine Daten</div>
-            </td>
-        </table>
+         <div class="note-entry-div ">keine Daten</div>
       </main>
     </div>
     <div class="new-note-page">
@@ -115,6 +112,7 @@
           </tr>
         </table>
         <input type="hidden" id="id-field" name="id" value="">
+        <input type="hidden" id="createDate-field" name="createDate" value="">
       </form>
     </div>
     <footer>Version 0.4</footer>
