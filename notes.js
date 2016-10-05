@@ -43,6 +43,7 @@ function showNewNotePage(id) {
     $("#description-field").val(noteToEdit.description);
     $("#dueDate-field").val(noteToEdit.dueDate);
     $("#priority"+noteToEdit.priority).prop("checked", true);
+    $("#finishedAt-field").val(noteToEdit.finishedAt);
     $("#createDate-field").val(noteToEdit.createDate)
     updatePriorityView();
     $(".new-note-page").show();
@@ -78,7 +79,7 @@ function updateNotes(note) {
 }
 
 function renderNotes() {
-    var renderingNotes = notes.filter(d => $('#show-finished').prop('checked') || !d.finished).sort(compareById);
+    var renderingNotes = notes.filter(d => $('#show-finished').prop('checked') || !d.finishedAt).sort(compareById);
     var notesTemplateText = $("#notes-template").html();
     $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(renderingNotes);
     $(".edit-button").click(editNewNotePage);

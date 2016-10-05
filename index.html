@@ -15,8 +15,7 @@
           <div class="first-column">
             <div class="due-date-div">{{ dueDate }}</div>
             <div class="finished-at-div">
-              <input type="checkbox" value="finished1" disabled {{#if finished }} checked {{/if}}>finished</input>
-              {{#if finished}}(at: {{ finishedAt }}){{/if}}
+              {{#if finishedAt }}finished at {{ finishedAt }}{{/if}}
             </div>
           </div>
           <div class="second-column">
@@ -100,8 +99,12 @@
             </td>
           </tr>
           <tr>
-            <td>Erledigt bis</td>
+            <td>Zu erledigen bis</td>
             <td><input id="dueDate-field" name="dueDate" type="date"></td>
+          </tr>
+          <tr>
+            <td>Erledigt am</td>
+            <td><input id="finishedAt-field" name="finishedAt" type="date"></td>
           </tr>
           <tr>
             <td colspan="3">
