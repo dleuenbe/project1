@@ -39,11 +39,11 @@
         <table class="field-table">
           <tr>
             <td>Title</td>
-            <td><input id="title-field" name="title" type="text"></td>
+            <td><input id="title-field" name="title" type="text" required></td>
           </tr>
           <tr>
             <td>Description</td>
-            <td><textarea id="description-field" name="description" rows="8"></textarea></td>
+            <td><textarea id="description-field" name="description" rows="8" required></textarea></td>
           </tr>
           <tr>
             <td>Priority</td>
@@ -72,7 +72,7 @@
           </tr>
           <tr>
             <td>Todo until</td>
-            <td><input id="dueDate-field" name="dueDate" type="date"></td>
+            <td><input id="dueDate-field" name="dueDate" type="date" required></td>
           </tr>
           <tr>
             <td>Done at</td>
@@ -85,6 +85,7 @@
           <tr>
             <td colspan="3">
               <div  class="button-field">
+                <div id="errorMessage">Please fill required fields</div>
                 <button type="submit" id="save-new-note">Save</button>
                 <button id="cancel-new-note">Cancel</button>
               </div>

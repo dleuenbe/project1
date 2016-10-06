@@ -161,4 +161,9 @@ footer {
     width: 100%;
     resize: vertical;
 }
+
+#errorMessage {
+    padding: 0.5em;
+    color: red;
+}
 /* end: note edit page*/

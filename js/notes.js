@@ -13,6 +13,7 @@ $(function() {
     $("#show-finished, .filter-item").change(renderNotes);
     $("#show-finished + label, .filter-item + label").mousedown(false);
     $(".priority-field > label").click(updatePriorityView);
+    $("#errorMessage").hide();
     loadDataFromStorage();
     updatePriorityView();
     renderNotes();
@@ -49,7 +50,24 @@ function showNewNotePage(id) {
     $("#finishedAt-field").val(noteToEdit.finishedAt);
     $("#createDate-field").val(noteToEdit.createDate);
     updatePriorityView();
+    clearValidation();
     $(".new-note-page").show();
+}
+
+function clearValidation() {
+    $("#newNoteForm [name][required]").css("background-color", "");
+    $("#errorMessage").hide();
+}
+
+function validateForm() {
+    clearValidation();
+    var notValid = $("#newNoteForm [name][required]").filter((pos, input) => !input.value);
+    notValid.css("background-color", "red")
+    var valid = notValid.length == 0;
+    if (!valid) {
+        $("#errorMessage").show();
+    }
+    return valid;
 }
 
 function hideNewNotePage() {
@@ -63,6 +81,9 @@ function cancelNewNotePage() {
 }
 
 function saveNewNotePage() {
+    if (!validateForm()) {
+        return false;
+    }
     var note = $("#newNoteForm").serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
     updateNotes(note);
     hideNewNotePage();
