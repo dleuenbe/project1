@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Notes App</title>
-    <link id="stylesheetLink" rel="stylesheet" href="standard.css">
-    <link rel="stylesheet" href="button.css">
+    <link id="stylesheetLink" rel="stylesheet" href="css/standard.css">
+    <link rel="stylesheet" href="css/button.css">
   </head>
   <body>
     <header>
@@ -50,23 +50,23 @@
             <td class="priority-field">
               <label for="priority1">
                 <input type="radio" class="priorityInput" name="priority" id="priority1" value="1" checked>
-                <img class="priority1" src="priority.svg" alt="1">
+                <img class="priority1" src="img/priority.svg" alt="1">
               </label>
               <label for="priority2">
                 <input type="radio" class="priorityInput" name="priority" id="priority2" value="2">
-                <img class="priority2" src="priority.svg" alt="2">
+                <img class="priority2" src="img/priority.svg" alt="2">
               </label>
               <label for="priority3">
                 <input type="radio" class="priorityInput" name="priority" id="priority3"  value="3">
-                <img class="priority3" src="priority.svg" alt="3">
+                <img class="priority3" src="img/priority.svg" alt="3">
               </label>
               <label for="priority4">
                 <input type="radio" class="priorityInput" name="priority" id="priority4"  value="4">
-                <img class="priority4" src="priority.svg" alt="4">
+                <img class="priority4" src="img/priority.svg" alt="4">
               </label>
               <label for="priority5">
                 <input type="radio" class="priorityInput" name="priority" id="priority5"  value="5">
-                <img class="priority5" src="priority.svg" alt="5">
+                <img class="priority5" src="img/priority.svg" alt="5">
               </label>
             </td>
           </tr>
@@ -97,10 +97,10 @@
     </div>
     <footer>Version 0.4</footer>
 
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="notes.js"></script>
-    <script type="text/javascript" src="handlebars.js"></script>
-    <script type="text/javascript" src="daten.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/notes.js"></script>
+    <script type="text/javascript" src="js/handlebars.js"></script>
+    <script type="text/javascript" src="js/daten.js"></script>
     <script id="notes-template" type="text/x-handlebars-template">
       {{#each this}}
       <div class="note-entry-div">
@@ -113,11 +113,11 @@
         <div class="second-column">
           <div class="title-div">{{ title }}</div>
           <div class="priority-div">
-            <img class="priority1" src="priority.svg" alt="1">
-            <img class="priority2 {{#ifLte priority 1 }} grayscale {{/ifLte}}" src="priority.svg" alt="2">
-            <img class="priority3 {{#ifLte priority 2 }} grayscale {{/ifLte}}" src="priority.svg" alt="3">
-            <img class="priority4 {{#ifLte priority 3 }} grayscale {{/ifLte}}" src="priority.svg" alt="4">
-            <img class="priority5 {{#ifLte priority 4 }} grayscale {{/ifLte}}" src="priority.svg" alt="5">
+            <img class="priority1" src="img/priority.svg" alt="1">
+            <img class="priority2 {{#ifLte priority 1 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="2">
+            <img class="priority3 {{#ifLte priority 2 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="3">
+            <img class="priority4 {{#ifLte priority 3 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="4">
+            <img class="priority5 {{#ifLte priority 4 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="5">
           </div>
           <textarea class="description-textarea"readonly rows="2">{{ description }}</textarea>
         </div>
