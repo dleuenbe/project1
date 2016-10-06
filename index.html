@@ -5,34 +5,6 @@
     <title>Notes App</title>
     <link id="stylesheetLink" rel="stylesheet" href="standard.css">
     <link rel="stylesheet" href="button.css">
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="notes.js"></script>
-    <script type="text/javascript" src="handlebars.js"></script>
-    <script type="text/javascript" src="daten.js"></script>
-    <script id="notes-template" type="text/x-handlebars-template">
-      {{#each this}}
-        <div class="note-entry-div">
-          <div class="first-column">
-            <div class="due-date-div">{{ dueDate }}</div>
-            <div class="finished-at-div">
-              {{#if finishedAt }}finished at {{ finishedAt }}{{/if}}
-            </div>
-          </div>
-          <div class="second-column">
-            <div class="title-div">{{ title }}</div>
-            <div class="priority-div">
-              <img class="priority1" src="priority.svg" alt="1">
-              <img class="priority2 {{#ifLte priority 1 }} grayscale {{/ifLte}}" src="priority.svg" alt="2">
-              <img class="priority3 {{#ifLte priority 2 }} grayscale {{/ifLte}}" src="priority.svg" alt="3">
-              <img class="priority4 {{#ifLte priority 3 }} grayscale {{/ifLte}}" src="priority.svg" alt="4">
-              <img class="priority5 {{#ifLte priority 4 }} grayscale {{/ifLte}}" src="priority.svg" alt="5">
-            </div>
-            <textarea class="description-textarea"readonly rows="2">{{ description }}</textarea>
-          </div>
-          <button class="edit-button" value="{{ id }}">edit</button>
-        </div>
-      {{/each}}
-    </script>
   </head>
   <body>
     <header>
@@ -124,5 +96,34 @@
       </form>
     </div>
     <footer>Version 0.4</footer>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="notes.js"></script>
+    <script type="text/javascript" src="handlebars.js"></script>
+    <script type="text/javascript" src="daten.js"></script>
+    <script id="notes-template" type="text/x-handlebars-template">
+      {{#each this}}
+      <div class="note-entry-div">
+        <div class="first-column">
+          <div class="due-date-div">{{ dueDate }}</div>
+          <div class="finished-at-div">
+            {{#if finishedAt }}finished at {{ finishedAt }}{{/if}}
+          </div>
+        </div>
+        <div class="second-column">
+          <div class="title-div">{{ title }}</div>
+          <div class="priority-div">
+            <img class="priority1" src="priority.svg" alt="1">
+            <img class="priority2 {{#ifLte priority 1 }} grayscale {{/ifLte}}" src="priority.svg" alt="2">
+            <img class="priority3 {{#ifLte priority 2 }} grayscale {{/ifLte}}" src="priority.svg" alt="3">
+            <img class="priority4 {{#ifLte priority 3 }} grayscale {{/ifLte}}" src="priority.svg" alt="4">
+            <img class="priority5 {{#ifLte priority 4 }} grayscale {{/ifLte}}" src="priority.svg" alt="5">
+          </div>
+          <textarea class="description-textarea"readonly rows="2">{{ description }}</textarea>
+        </div>
+        <button class="edit-button" value="{{ id }}">edit</button>
+      </div>
+      {{/each}}
+    </script>
   </body>
 </html>
