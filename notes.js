@@ -37,6 +37,7 @@ function showNewNotePage(id) {
     if (id == undefined) {
         noteToEdit.id = Math.max.apply(Math,notes.map(function(n){return n.id;}))+1;
         noteToEdit.createDate = createFormatedDate();
+        noteToEdit.priority = 1;
     } else {
         noteToEdit = notes.filter(f => f.id == id)[0];
     }
