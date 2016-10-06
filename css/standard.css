@@ -159,5 +159,6 @@ footer {
 #title-field, #description-field {
     box-sizing: border-box;
     width: 100%;
+    resize: vertical;
 }
 /* end: note edit page*/
