@@ -36,7 +36,7 @@ function showNewNotePage(id) {
     var noteToEdit  = new Object();
     if (id == undefined) {
         noteToEdit.id = Math.max.apply(Math,notes.map(function(n){return n.id;}))+1;
-        noteToEdit.createDate = new Date().getTime();
+        noteToEdit.createDate = createFormatedDate();
     } else {
         noteToEdit = notes.filter(f => f.id == id)[0];
     }
@@ -76,12 +76,16 @@ function clearFinishedAtDate() {
 }
 
 function setFinishedAtDate() {
+    $("#finishedAt-field").val(createFormatedDate());
+    return false;
+}
+
+function createFormatedDate() {
     var date = new Date();
     var day = ("0" + date.getDate()).slice(-2);
     var month = ("0" + (date.getMonth()+1)).slice(-2);
     var year = date.getFullYear();
-    $("#finishedAt-field").val(year+"-"+month+"-"+day);
-    return false;
+    return year+"-"+month+"-"+day;
 }
 
 function updateNotes(note) {
