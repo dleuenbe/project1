@@ -18,8 +18,8 @@
       <section class="filter-bar">
         <button class="new-note">Create new Note</button>
         <div class="order-wrapper">
-          <input type="radio" name="orderSelection" id="order-by-finishedAt" class="filter-item toggle toggle-left">
-          <label for="order-by-finishedAt">By finished Date</label>
+          <input type="radio" name="orderSelection" id="order-by-finishedDate" class="filter-item toggle toggle-left">
+          <label for="order-by-finishedDate">By finished Date</label>
           <input type="radio" name="orderSelection" id="order-by-createDate" class="filter-item toggle" checked>
           <label for="order-by-createDate">By create Date</label>
           <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item toggle" checked>
@@ -34,8 +34,8 @@
          <div class="note-entry-div ">no data</div>
       </main>
     </div>
-    <div class="new-note-page">
-      <form id="newNoteForm" name="newNoteForm">
+    <div class="detail-page">
+      <form id="editForm" name="editForm">
         <table class="field-table">
           <tr>
             <td>Title</td>
@@ -77,9 +77,9 @@
           <tr>
             <td>Done at</td>
             <td>
-              <button id="setFinishedAtDate">now</button>
-              <button id="clearFinishedAtDate">clear</button>
-              <input id="finishedAt-field" name="finishedAt" type="date">
+              <button id="setFinishedDate">now</button>
+              <button id="clearFinishedDate">clear</button>
+              <input id="finishedDate-field" name="finishedDate" type="date">
             </td>
           </tr>
           <tr>
@@ -99,16 +99,20 @@
     <footer>Version 0.4</footer>
 
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/notes.js"></script>
     <script type="text/javascript" src="js/handlebars.js"></script>
+    <script type="text/javascript" src="js/Note.js"></script>
+    <script type="text/javascript" src="js/LocalStorageService.js"></script>
+    <script type="text/javascript" src="js/NotesService.js"></script>
     <script type="text/javascript" src="js/daten.js"></script>
+    <script type="text/javascript" src="js/notes.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
     <script id="notes-template" type="text/x-handlebars-template">
       {{#each this}}
       <div class="note-entry-div">
         <div class="first-column">
           <div class="due-date-div">{{ dueDate }}</div>
           <div class="finished-at-div">
-            {{#if finishedAt }}finished at {{ finishedAt }}{{/if}}
+            {{#if finishedDate }}finished at {{ finishedDate }}{{/if}}
           </div>
         </div>
         <div class="second-column">

@@ -1,68 +1,78 @@
+
 'use strict';
 
-var notes;
-
-$(function() {
+$(function () {
     registerHandlebarIfLte();
     $("header > select").change(changeStyle);
-    $(".new-note").click(createNewNote);
-    $("#cancel-new-note").click(cancelNewNotePage);
-    $("#save-new-note").click(saveNewNotePage);
-    $("#setFinishedAtDate").click(setFinishedAtDate);
-    $("#clearFinishedAtDate").click(clearFinishedAtDate);
-    $("#show-finished, .filter-item").change(renderNotes);
+    $(".new-note").click(newNote);
+    $("#cancel-new-note").click(cancelEdit);
+    $("#save-new-note").click(saveEdit);
+    $("#setFinishedDate").click(setFinishedDate);
+    $("#clearFinishedDate").click(clearFinishedDate);
+    $("#show-finished").change(updateFilter);
+    $(".filter-item").change(updateOrder);
     $("#show-finished + label, .filter-item + label").mousedown(false);
     $(".priority-field > label").click(updatePriorityView);
     $("#errorMessage").hide();
-    loadDataFromStorage();
-    updatePriorityView();
+    updateOrder();
+    updateFilter();
     renderNotes();
-})
+});
 
 function changeStyle(event) {
     $("#stylesheetLink").attr("href", event.target.value);
 }
 
-function editNewNotePage(event) {
+function updateOrder() {
+    var fieldName = $(".filter-item:checked").prop('id').substr('order-by-'.length);
+    notesService.orderByField(fieldName);
+    renderNotes();
+}
+
+function updateFilter() {
+    var checked = $('#show-finished').prop('checked');
+    notesService.setFilterState(checked);
+    renderNotes();
+}
+
+function newNote() {
+    var note = notesService.getNewNote();
+    showDetailPage(note);
+}
+
+function editNote(event) {
     var id = event.target.value;
-    showNewNotePage(id);
+    var note = notesService.getNoteById(id);
+    showDetailPage(note);
 }
 
-function createNewNote() {
-    showNewNotePage();
-}
-
-function showNewNotePage(id) {
-    $(".overview-page").hide();
-    var noteToEdit  = new Object();
-    if (id == undefined) {
-        noteToEdit.id = Math.max.apply(Math,notes.map(function(n){return n.id;}))+1;
-        noteToEdit.createDate = createFormatedDate();
-        noteToEdit.priority = 1;
-    } else {
-        noteToEdit = notes.filter(f => f.id == id)[0];
-    }
-    $("#id-field").val(noteToEdit.id);
-    $("#title-field").val(noteToEdit.title);
-    $("#description-field").val(noteToEdit.description);
-    $("#dueDate-field").val(noteToEdit.dueDate);
-    $("#priority"+noteToEdit.priority).prop("checked", true);
-    $("#finishedAt-field").val(noteToEdit.finishedAt);
-    $("#createDate-field").val(noteToEdit.createDate);
-    updatePriorityView();
+function showDetailPage(note) {
+    updateFields(note);
     clearValidation();
-    $(".new-note-page").show();
+    $(".overview-page").hide();
+    $(".detail-page").show();
+}
+
+function updateFields(note) {
+    $("#id-field").val(note.id);
+    $("#title-field").val(note.title);
+    $("#description-field").val(note.description);
+    $("#dueDate-field").val(note.dueDate);
+    $("#priority" + note.priority).prop("checked", true);
+    $("#finishedDate-field").val(note.finishedDate);
+    $("#createDate-field").val(note.createDate);
+    updatePriorityView();
 }
 
 function clearValidation() {
-    $("#newNoteForm [name][required]").css("background-color", "");
+    $("#editForm [name][required]").css("background-color", "");
     $("#errorMessage").hide();
 }
 
 function validateForm() {
     clearValidation();
-    var notValid = $("#newNoteForm [name][required]").filter((pos, input) => !input.value);
-    notValid.css("background-color", "red")
+    var notValid = $("#editForm [name][required]").filter((pos, input) => !input.value);
+    notValid.css("background-color", "red");
     var valid = notValid.length == 0;
     if (!valid) {
         $("#errorMessage").show();
@@ -70,87 +80,58 @@ function validateForm() {
     return valid;
 }
 
-function hideNewNotePage() {
+function showOverviewPage() {
     $(".overview-page").show();
-    $(".new-note-page").hide();
+    $(".detail-page").hide();
 }
 
-function cancelNewNotePage() {
-    hideNewNotePage();
+function cancelEdit() {
+    showOverviewPage();
     return false;
 }
 
-function saveNewNotePage() {
+function saveEdit() {
     if (!validateForm()) {
         return false;
     }
-    var note = $("#newNoteForm").serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
-    updateNotes(note);
-    hideNewNotePage();
+    var simpleNote = $("#editForm").serializeArray().reduce(function (a, x) {
+        a[x.name] = x.value;
+        return a;
+    }, {});
+    notesService.updateNote(note.createNote(simpleNote));
+    showOverviewPage();
     renderNotes();
-    saveToLocalStorage();
     return false;
 }
 
-function clearFinishedAtDate() {
-    $("#finishedAt-field").val("");
+function clearFinishedDate() {
+    $("#finishedDate-field").val("");
     return false;
 }
 
-function setFinishedAtDate() {
-    $("#finishedAt-field").val(createFormatedDate());
+function setFinishedDate() {
+    $("#finishedDate-field").val(formatedDate(new Date()));
     return false;
 }
 
-function createFormatedDate() {
-    var date = new Date();
+function formatedDate(date) {
     var day = ("0" + date.getDate()).slice(-2);
-    var month = ("0" + (date.getMonth()+1)).slice(-2);
+    var month = ("0" + (date.getMonth() + 1)).slice(-2);
     var year = date.getFullYear();
-    return year+"-"+month+"-"+day;
-}
-
-function updateNotes(note) {
-    for (var i=0; i < notes.length; i++) {
-        if (notes[i].id == note.id) {
-            notes.splice(i, 1, note);
-            return;
-        }
-    }
-    notes.push(note);
+    return year + "-" + month + "-" + day;
 }
 
 function renderNotes() {
-    var renderingNotes = notes.filter(d => $('#show-finished').prop('checked') || !d.finishedAt).sort(compareById);
     var notesTemplateText = $("#notes-template").html();
-    $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(renderingNotes);
-    $(".edit-button").click(editNewNotePage);
-}
-
-function compareById(n1, n2) {
-    var orderByField = $(".filter-item:checked").prop('id').substr('order-by-'.length);
-    return n2[orderByField] == n1[orderByField] ? 0 : n2[orderByField] < n1[orderByField] ? -1 : 1;
+    $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(notesService.getVisibleNotesOrdered());
+    $(".edit-button").click(editNote);
 }
 
 function updatePriorityView() {
     var pos = parseInt($("input[type='radio'].priorityInput:checked").attr("value"));
-    $(".priority-field > label:nth-child(-n+"+pos+") > img").removeClass("grayscale");
-    $(".priority-field > label:nth-last-child(-n+"+(5-pos)+") > img").addClass("grayscale");
+    $(".priority-field > label:nth-child(-n+" + pos + ") > img").removeClass("grayscale");
+    $(".priority-field > label:nth-last-child(-n+" + (5 - pos) + ") > img").addClass("grayscale");
 }
-
-function loadDataFromStorage() {
-    var notesFromLocalStorage = localStorage.getItem("notes");
-    if (notesFromLocalStorage === null) {
-        notes = defaultNotesFromJS;
-    } else {
-        notes = JSON.parse(notesFromLocalStorage);
-    }
-}
-
-function saveToLocalStorage() {
-    localStorage.setItem("notes", JSON.stringify(notes));
-}
-
 
 function registerHandlebarIfLte() {
     Handlebars.registerHelper('ifLte', function (v1, v2, options) {
