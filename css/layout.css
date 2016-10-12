@@ -1,7 +1,10 @@
 /* start: notes list */
+.note-entry-div, .due-date-div, .finished-date-div, .title-div {
+    padding: 0.5em;
+}
+
 .note-entry-div {
     display: flex;
-    padding: 0.5em;
 }
 
 .first-column {
@@ -14,7 +17,6 @@
 .due-date-div, .finished-date-div {
     box-sizing: border-box;
     flex: 0 0 100%;
-    padding: 0.5em;
 }
 
 .finished-date-div {
@@ -30,7 +32,6 @@
 .title-div {
     flex: 1;
     min-height: 1em;
-    padding: 0.5em;
     display: flex;
 }
 
@@ -49,10 +50,6 @@
 .edit-button {
     flex-basis: 6em;
     margin-left: 0.5em;
-}
-
-.title-div, .due-date-div, .finished-date-div {
-    padding: 0.5em;
 }
 
 .grayscale {
@@ -114,13 +111,12 @@ footer {
 /* end: filter and order */
 /* start: note edit page */
 .field-table  {
-    padding: 5px;
     margin: 0;
     width: 100%;
 }
 
-.field-table td {
-    padding: 5px;
+.field-table, .field-table td {
+    padding: 0.4em;
 }
 
 .button-field {
