@@ -24,6 +24,12 @@
                     throw "InvalidArgumentException " + simpleNote;
                 }
             }
+            get formattedDueDate() {
+                return moment(this.dueDate, ["YYYY-MM-DD", "DD.MM.YYYY"]).fromNow();
+            };
+            get formattedFinishedDate() {
+                return moment(this.finishedDate, ["YYYY-MM-DD", "DD.MM.YYYY"]).fromNow();
+            };
         }
 
         function privateFormatedDate(date) {

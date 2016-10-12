@@ -101,6 +101,7 @@
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/handlebars.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/Note.js"></script>
     <script type="text/javascript" src="js/LocalStorageService.js"></script>
     <script type="text/javascript" src="js/NotesService.js"></script>
@@ -111,9 +112,9 @@
       {{#each this}}
       <div class="note-entry-div">
         <div class="first-column">
-          <div class="due-date-div">{{ dueDate }}</div>
+          <div class="due-date-div"><b>due date:</b> {{ formattedDueDate }}</div>
           <div class="finished-date-div">
-            {{#if finishedDate }}finished at {{ finishedDate }}{{/if}}
+            {{#if finishedDate }}<b>finished</b> {{ formattedFinishedDate }}{{/if}}
           </div>
         </div>
         <div class="second-column">
