@@ -11,13 +11,13 @@
     flex-flow: wrap;
 }
 
-.due-date-div, .finished-at-div {
+.due-date-div, .finished-date-div {
     box-sizing: border-box;
     flex: 0 0 100%;
     padding: 0.5em;
 }
 
-.finished-at-div {
+.finished-date-div {
     margin-top: 0.5em;
 }
 
@@ -51,7 +51,7 @@
     margin-left: 0.5em;
 }
 
-.title-div, .due-date-div, .finished-at-div {
+.title-div, .due-date-div, .finished-date-div {
     padding: 0.5em;
 }
 
