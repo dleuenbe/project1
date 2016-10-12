@@ -67,7 +67,7 @@
         }
 
         function privateLoadNotes() {
-            notes = localStorageService.getAll();
+            notes = localStorageService.getAll().map(n => note.createNote(n));
         }
 
         return {
