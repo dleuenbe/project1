@@ -1,0 +1,151 @@
+/* start: notes list */
+.note-entry-div {
+    display: flex;
+    padding: 0.5em;
+}
+
+.first-column {
+    flex-basis: 14em;
+    display: flex;
+    margin-right: 0.5em;
+    flex-flow: wrap;
+}
+
+.due-date-div, .finished-at-div {
+    box-sizing: border-box;
+    flex: 0 0 100%;
+    padding: 0.5em;
+}
+
+.finished-at-div {
+    margin-top: 0.5em;
+}
+
+.second-column {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.title-div {
+    flex: 1;
+    min-height: 1em;
+    padding: 0.5em;
+    display: flex;
+}
+
+.priority-div {
+    padding: 0 0.5em;
+}
+
+.description-textarea {
+    margin-top: 0.5em;
+    box-sizing: border-box;
+    flex: 1 0 100%;
+    resize: vertical;
+    padding: 0.25em 0.5em 0.25em;
+}
+
+.edit-button {
+    flex-basis: 6em;
+    margin-left: 0.5em;
+}
+
+.title-div, .due-date-div, .finished-at-div {
+    padding: 0.5em;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+/* end: notes list */
+/* start: page control */
+.overview-page {
+    display: block;
+}
+
+.detail-page {
+    display: none;
+}
+/* end: page control */
+/* start: common */
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 14px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 10px;
+}
+
+header > h1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+footer {
+    padding: 0.5em;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+/* end: common */
+/* start: filter and order */
+.filter-bar {
+    margin: 0px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-wrapper {
+    display: flex;
+    padding: 0px;
+}
+/* end: filter and order */
+/* start: note edit page */
+.field-table  {
+    padding: 5px;
+    margin: 0;
+    width: 100%;
+}
+
+.field-table td {
+    padding: 5px;
+}
+
+.button-field {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: flex-end;
+}
+
+.button-field button {
+    margin: 0 0 0 0.5em;
+    padding: 0 2em 0;
+    height: 2em;
+}
+
+.field-table tr td:first-child {
+    width: 14em;
+}
+
+#title-field, #description-field {
+    box-sizing: border-box;
+    width: 100%;
+    resize: vertical;
+}
+
+#errorMessage {
+    padding: 0.5em;
+}
+/* end: note edit page*/
