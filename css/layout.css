@@ -3,6 +3,10 @@
     padding: 0.5em;
 }
 
+.due-date-div, .finished-date-div, .title-div, .description-textarea {
+    border-radius: 0.5em;
+}
+
 .note-entry-div {
     display: flex;
 }
