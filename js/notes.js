@@ -48,7 +48,6 @@
 
     function showDetailPage(note) {
         updateFields(note);
-        clearValidation();
         $(".overview-page").hide();
         $(".detail-page").show();
     }
@@ -64,20 +63,10 @@
         updatePriorityView();
     }
 
-    function clearValidation() {
-        $("#editForm [name][required]").css("background-color", "");
-        $("#errorMessage").hide();
-    }
-
     function validateForm() {
-        clearValidation();
-        var notValid = $("#editForm [name][required]").filter((pos, input) => !input.value);
-        notValid.css("background-color", "red");
-        var valid = notValid.length == 0;
-        if (!valid) {
-            $("#errorMessage").show();
-        }
-        return valid;
+        $("#editForm [name]").forEach((input) => input.checkValidity());
+        var notValid = $("#editForm [name]").filter((pos, input) => input.validity.valid);
+        return notValid.length == 0;
     }
 
     function showOverviewPage() {
