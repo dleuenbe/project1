@@ -94,14 +94,18 @@
         if (!validateForm()) {
             return false;
         }
+        namespace.notesService.updateNote(createNoteFromForm());
+        showOverviewPage();
+        renderNotes();
+        return false;
+    }
+
+    function createNoteFromForm() {
         var simpleNote = $("#editForm").serializeArray().reduce(function (a, x) {
             a[x.name] = x.value;
             return a;
         }, {});
-        namespace.notesService.updateNote(namespace.note.createNote(simpleNote));
-        showOverviewPage();
-        renderNotes();
-        return false;
+        return namespace.note.createNote(simpleNote);
     }
 
     function clearFinishedDate() {
