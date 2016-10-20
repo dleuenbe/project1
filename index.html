@@ -15,87 +15,89 @@
         <option value="css/rainbow.css">Rainbow</option>
       </select>
     </header>
-    <div class="overview-page">
-      <section class="filter-bar">
-        <button class="new-note">Create new Note</button>
-        <div class="order-wrapper">
-          <input type="radio" name="orderSelection" id="order-by-finishedDate" class="filter-item toggle toggle-left">
-          <label for="order-by-finishedDate">By finished Date</label>
-          <input type="radio" name="orderSelection" id="order-by-createDate" class="filter-item toggle" checked>
-          <label for="order-by-createDate">By create Date</label>
-          <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item toggle" checked>
-          <label for="order-by-dueDate">By due Date</label>
-          <input type="radio" name="orderSelection" id="order-by-priority" class="filter-item toggle toggle-right">
-          <label for="order-by-priority">By Priority</label>
-        </div>
-        <input id="show-finished" type="checkbox" class="toggle toggle-left toggle-right">
-        <label class="btn" for="show-finished">Show Finished</label>
-      </section>
-      <main class="note-bar">
-         <div class="note-entry-div ">no data</div>
-      </main>
-    </div>
-    <div class="detail-page">
-      <form id="editForm" name="editForm">
-        <table class="field-table">
-          <tr>
-            <td>Title</td>
-            <td><input id="title-field" name="title" type="text" required></td>
-          </tr>
-          <tr>
-            <td>Description</td>
-            <td><textarea id="description-field" name="description" rows="8" required></textarea></td>
-          </tr>
-          <tr>
-            <td>Priority</td>
-            <td class="priority-field">
-              <label for="priority1">
-                <input type="radio" class="priorityInput" name="priority" id="priority1" value="1" checked>
-                <img class="priority1" src="img/priority.svg" alt="1">
-              </label>
-              <label for="priority2">
-                <input type="radio" class="priorityInput" name="priority" id="priority2" value="2">
-                <img class="priority2" src="img/priority.svg" alt="2">
-              </label>
-              <label for="priority3">
-                <input type="radio" class="priorityInput" name="priority" id="priority3"  value="3">
-                <img class="priority3" src="img/priority.svg" alt="3">
-              </label>
-              <label for="priority4">
-                <input type="radio" class="priorityInput" name="priority" id="priority4"  value="4">
-                <img class="priority4" src="img/priority.svg" alt="4">
-              </label>
-              <label for="priority5">
-                <input type="radio" class="priorityInput" name="priority" id="priority5"  value="5">
-                <img class="priority5" src="img/priority.svg" alt="5">
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>Todo until</td>
-            <td><input id="dueDate-field" name="dueDate" type="date" required></td>
-          </tr>
-          <tr>
-            <td>Done at</td>
-            <td>
-              <button id="setFinishedDate">now</button>
-              <button id="clearFinishedDate">clear</button>
-              <input id="finishedDate-field" name="finishedDate" type="date">
-            </td>
-          </tr>
-          <tr>
-            <td colspan="3">
-              <div  class="button-field">
-                <div id="errorMessage">Please fill required fields</div>
-                <button type="submit" id="save-new-note">Save</button>
-                <button id="cancel-new-note">Cancel</button>
-              </div>
-            </td>
-          </tr>
-        </table>
-        <input type="hidden" id="id-field" name="id" value="">
-        <input type="hidden" id="createDate-field" name="createDate" value="">
-      </form>
+    <div id="content">
+      <div class="overview-page">
+        <section class="filter-bar">
+          <button class="new-note">Create new Note</button>
+          <div class="order-wrapper">
+            <input type="radio" name="orderSelection" id="order-by-finishedDate" class="filter-item toggle toggle-left">
+            <label for="order-by-finishedDate">By finished Date</label>
+            <input type="radio" name="orderSelection" id="order-by-createDate" class="filter-item toggle" checked>
+            <label for="order-by-createDate">By create Date</label>
+            <input type="radio" name="orderSelection" id="order-by-dueDate" class="filter-item toggle" checked>
+            <label for="order-by-dueDate">By due Date</label>
+            <input type="radio" name="orderSelection" id="order-by-priority" class="filter-item toggle toggle-right">
+            <label for="order-by-priority">By Priority</label>
+          </div>
+          <input id="show-finished" type="checkbox" class="toggle toggle-left toggle-right">
+          <label class="btn" for="show-finished">Show Finished</label>
+        </section>
+        <main class="note-bar">
+          <div class="note-entry-div ">no data</div>
+        </main>
+      </div>
+      <div class="detail-page">
+        <form id="editForm" name="editForm">
+          <table class="field-table">
+            <tr>
+              <td>Title</td>
+              <td><input id="title-field" name="title" type="text" required></td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td><textarea id="description-field" name="description" rows="8" required></textarea></td>
+            </tr>
+            <tr>
+              <td>Priority</td>
+              <td class="priority-field">
+                <label for="priority1">
+                  <input type="radio" class="priorityInput" name="priority" id="priority1" value="1" checked>
+                  <img class="priority1" src="img/priority.svg" alt="1">
+                </label>
+                <label for="priority2">
+                  <input type="radio" class="priorityInput" name="priority" id="priority2" value="2">
+                  <img class="priority2" src="img/priority.svg" alt="2">
+                </label>
+                <label for="priority3">
+                  <input type="radio" class="priorityInput" name="priority" id="priority3"  value="3">
+                  <img class="priority3" src="img/priority.svg" alt="3">
+                </label>
+                <label for="priority4">
+                  <input type="radio" class="priorityInput" name="priority" id="priority4"  value="4">
+                  <img class="priority4" src="img/priority.svg" alt="4">
+                </label>
+                <label for="priority5">
+                  <input type="radio" class="priorityInput" name="priority" id="priority5"  value="5">
+                  <img class="priority5" src="img/priority.svg" alt="5">
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>Todo until</td>
+              <td><input id="dueDate-field" name="dueDate" type="date" required></td>
+            </tr>
+            <tr>
+              <td>Done at</td>
+              <td>
+                <button id="setFinishedDate">now</button>
+                <button id="clearFinishedDate">clear</button>
+                <input id="finishedDate-field" name="finishedDate" type="date">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <div  class="button-field">
+                  <div id="errorMessage">Please fill required fields</div>
+                  <button type="submit" id="save-new-note">Save</button>
+                  <button id="cancel-new-note">Cancel</button>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <input type="hidden" id="id-field" name="id" value="">
+          <input type="hidden" id="createDate-field" name="createDate" value="">
+        </form>
+      </div>
     </div>
     <footer><div>Version 0.5</div><div>&copy; 2016 by D. Leuenberger</div></footer>
 
