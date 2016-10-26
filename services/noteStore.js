@@ -15,27 +15,32 @@ function Note(simpleNote)
 function publicAdd(simpleNote, callback)
 {
     var note= new Note(simpleNote);
-    db.insert(note, function(err, newDoc){
-        newDoc.id = newDoc._id;
-        newDoc._id = undefined;
+    db.insert(note, function(err, savedSimpleNote){
         if(callback){
-            callback(newDoc);
+            callback(privateSwitchId(savedSimpleNote));
         }
     });
 }
 
 function publicGet(id, callback)
 {
-    db.findOne({ _id: id }, function (err, doc) {
-        callback( err, doc);
+    db.findOne({ _id: id }, function (err, note) {
+        callback( err, privateSwitchId(note));
     });
 }
 
 function publicAll(callback)
 {
-    db.find({}, function (err, docs) {
-        callback( err, docs);
+    db.find({}, function (err, simpleNotes) {
+        simpleNotes.forEach(n => privateSwitchId(n));
+        callback( err, simpleNotes);
     });
+}
+
+function privateSwitchId(simpleNote) {
+    simpleNote.id = simpleNote._id;
+    simpleNote._id = undefined;
+    return simpleNote;
 }
 
 module.exports = {add : publicAdd, get : publicGet, all : publicAll};

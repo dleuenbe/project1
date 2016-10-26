@@ -7,8 +7,8 @@
     namespace.serverStorageService = (function ($) {
 
         function publicSaveEntry(note, callback) {
-            $.post({url: '/notes/'+note.id, data: note}).done((note) => {
-                callback(note.id);
+            $.post({url: '/notes/'+note.id+'/', data: note}).done((id) => {
+                callback(id);
             });
         }
 
@@ -17,7 +17,7 @@
         }
 
         function publicGetEntry(id, callback) {
-            $.getJSON({url: '/notes/'+id}).done((note) => {
+            $.getJSON({url: '/notes/'+id+'/'}).done((note) => {
                 callback(namespace.note.createNote(note));
             });
         }
