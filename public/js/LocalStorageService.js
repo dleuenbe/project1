@@ -12,12 +12,12 @@
             if (note.id == undefined || note.id == "") {
                 note.id = privateGetNextId();
             }
-            privateUpdateNote(notes, note);
-            localStorage.setItem("notes", JSON.stringify(privateRemoveNoteWithoutId(notes)));
+            privateUpdateNoteArray(notes, note);
+            localStorage.setItem("notes", JSON.stringify(notes));
             callback(note.id);
         }
 
-        function privateUpdateNote(notes, note) {
+        function privateUpdateNoteArray(notes, note) {
             for (var i = 0; i < notes.length; i++) {
                 if (notes[i].id == note.id) {
                     notes.splice(i, 1, note);
@@ -38,10 +38,6 @@
                 })) + 1;
         }
 
-        function privateRemoveNoteWithoutId(notes) {
-            return notes.filter(n => !isNaN(n.id));
-        }
-
         function publicGetEntry(id, callback) {
             publicGetAll((notes) => callback(notes.filter((n) => n.id == id)[0]));
         }
@@ -52,7 +48,6 @@
                 notesFromLocalStorageString=defaultNotesFromJS;
             }
             var notesFromLocalStorageObjects = JSON.parse(notesFromLocalStorageString);
-            notesFromLocalStorageObjects = privateRemoveNoteWithoutId(notesFromLocalStorageObjects);
             var notesFromLocalStorageNoteObjects = privateConvertToNotes(notesFromLocalStorageObjects);
             callback(notesFromLocalStorageNoteObjects);
         }

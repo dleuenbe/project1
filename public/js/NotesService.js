@@ -55,5 +55,5 @@
             getNoteById: publicGetNoteById
         };
 
-    })(namespace.localStorageService, namespace.note);
+    })(namespace.serverStorageService, namespace.note);
 }) (window.notesAppNamespace = window.notesAppNamespace || {});
