@@ -1,4 +1,4 @@
-var store = require("../services/nodeStore.js");
+var store = require("../services/noteStore.js");
 
 module.exports.addNote = function(req, res)
 {
