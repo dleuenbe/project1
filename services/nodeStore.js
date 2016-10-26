@@ -16,8 +16,10 @@ function publicAdd(simpleNote, callback)
 {
     var note= new Note(simpleNote);
     db.insert(note, function(err, newDoc){
+        newDoc.id = newDoc._id;
+        newDoc._id = undefined;
         if(callback){
-            callback(err, newDoc);
+            callback(newDoc);
         }
     });
 }

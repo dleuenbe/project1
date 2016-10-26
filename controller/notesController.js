@@ -2,8 +2,8 @@ var store = require("../services/nodeStore.js");
 
 module.exports.addNote = function(req, res)
 {
-    store.add(req.body, () => {
-        res.send({});
+    store.add(req.body, (note) => {
+        res.json(note.id);
     })
 };
 

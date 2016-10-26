@@ -7,8 +7,7 @@
     namespace.serverStorageService = (function ($) {
 
         function publicSaveEntry(note, callback) {
-            // daten werden noch nicht geschickt, TODO
-            $.get({method: 'post', url: '/notes/'+id}).done((note) => {
+            $.post({url: '/notes/'+note.id, data: note}).done((note) => {
                 callback(note.id);
             });
         }
