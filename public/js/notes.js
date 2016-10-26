@@ -36,14 +36,13 @@
     }
 
     function newNote() {
-        var note = namespace.notesService.getNewNote();
+        var note = namespace.notesService.createNewNote();
         showDetailPage(note);
     }
 
     function editNote(event) {
         var id = event.target.value;
-        var note = namespace.notesService.getNoteById(id);
-        showDetailPage(note);
+        namespace.notesService.getNoteById(id, (note) => showDetailPage(note));
     }
 
     function showDetailPage(note) {
@@ -64,8 +63,8 @@
     }
 
     function validateForm() {
-        $("#editForm [name]").forEach((input) => input.checkValidity());
-        var notValid = $("#editForm [name]").filter((pos, input) => input.validity.valid);
+        $("#editForm")[0].checkValidity();
+        var notValid = $("#editForm [name]").filter((pos, input) => !input.validity.valid);
         return notValid.length == 0;
     }
 
@@ -83,9 +82,10 @@
         if (!validateForm()) {
             return false;
         }
-        namespace.notesService.updateNote(createNoteFromForm());
-        showOverviewPage();
-        renderNotes();
+        namespace.notesService.updateNote(createNoteFromForm(), () => {
+            showOverviewPage();
+            renderNotes();
+        });
         return false;
     }
 
@@ -94,7 +94,7 @@
             a[x.name] = x.value;
             return a;
         }, {});
-        return namespace.note.createNote(simpleNote);
+        return namespace.notesService.convertToNote(simpleNote);
     }
 
     function clearFinishedDate() {
@@ -116,8 +116,10 @@
 
     function renderNotes() {
         var notesTemplateText = $("#notes-template").html();
-        $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(namespace.notesService.getVisibleNotesOrdered());
-        $(".edit-button").click(editNote);
+        namespace.notesService.getVisibleNotesOrdered((notes) => {
+            $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(notes);
+            $(".edit-button").click(editNote)
+        });
     }
 
     function updatePriorityView() {

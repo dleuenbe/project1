@@ -6,14 +6,15 @@
 
     namespace.localStorageService = (function () {
 
-        function publicSaveEntry(note) {
-            var notes = publicGetAll();
+        function publicSaveEntry(note, callback) {
+            var notes;
+            publicGetAll((allNotes) => notes = allNotes);
+            if (note.id == undefined || note.id == "") {
+                note.id = privateGetNextId();
+            }
             privateUpdateNote(notes, note);
             localStorage.setItem("notes", JSON.stringify(privateRemoveNoteWithoutId(notes)));
-        }
-
-        function privateRemoveNoteWithoutId(notes) {
-            return notes.filter(n => !isNaN(n.id));
+            callback(note.id);
         }
 
         function privateUpdateNote(notes, note) {
@@ -24,19 +25,40 @@
                 }
             }
             notes.push(note);
-        }
+         }
 
-        function publicGetEntry(id) {
-            var notesFromLocalStorage = localStorage.getItem("notes");
-            return notesFromLocalStorage.filter((pos, i) => i.id == id)[0];
-        }
-
-        function publicGetAll() {
-            var notesFromLocalStorage = localStorage.getItem("notes");
-            if (notesFromLocalStorage === null) {
-                return defaultNotesFromJS;
+        function privateGetNextId() {
+            var notes;
+            publicGetAll((allNotes) => notes = allNotes);
+            if (notes.length == 0) {
+                return 0;
             }
-            return privateRemoveNoteWithoutId(JSON.parse(notesFromLocalStorage));
+            return Math.max.apply(Math, notes.map(function (n) {
+                    return n.id;
+                })) + 1;
+        }
+
+        function privateRemoveNoteWithoutId(notes) {
+            return notes.filter(n => !isNaN(n.id));
+        }
+
+        function publicGetEntry(id, callback) {
+            publicGetAll((notes) => callback(notes.filter((n) => n.id == id)[0]));
+        }
+
+        function publicGetAll(callback) {
+            var notesFromLocalStorageString = localStorage.getItem("notes");
+            if (notesFromLocalStorageString === null) {
+                notesFromLocalStorageString=defaultNotesFromJS;
+            }
+            var notesFromLocalStorageObjects = JSON.parse(notesFromLocalStorageString);
+            notesFromLocalStorageObjects = privateRemoveNoteWithoutId(notesFromLocalStorageObjects);
+            var notesFromLocalStorageNoteObjects = privateConvertToNotes(notesFromLocalStorageObjects);
+            callback(notesFromLocalStorageNoteObjects);
+        }
+
+        function privateConvertToNotes(inputObjects) {
+            return inputObjects.map(n => namespace.note.createNote(n));
         }
 
         return {

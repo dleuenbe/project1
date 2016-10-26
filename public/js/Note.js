@@ -8,11 +8,7 @@
 
         class Note {
             constructor(simpleNote) {
-                if (typeof simpleNote === 'number') {        // create new Note
-                    this.id = simpleNote;
-                    this.createDate = createNewDate();
-                    this.priority = 1;
-                } else if (typeof simpleNote === 'object') {   // create Note from simple Object
+                if (typeof simpleNote === 'object') {   // create Note from simple Object
                     this.id = simpleNote.id;
                     this.createDate = simpleNote.createDate;
                     this.dueDate = simpleNote.dueDate;
@@ -20,8 +16,9 @@
                     this.title = simpleNote.title;
                     this.description = simpleNote.description;
                     this.priority = simpleNote.priority;
-                } else {
-                    throw "InvalidArgumentException " + simpleNote;
+                } else {        // create new Note without id
+                    this.createDate = createNewDate();
+                    this.priority = 1;
                 }
             }
             get formattedDueDate() { return formatDateFromNow(this.dueDate); };

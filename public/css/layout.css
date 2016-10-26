@@ -156,6 +156,14 @@ footer {
     resize: vertical;
 }
 
+#title-field:invalid, #description-field:invalid, #dueDate-field:invalid {
+    border: 2px solid red;
+}
+
+#title-field:valid, #description-field:valid, #dueDate-field:valid {
+    border: 1px solid green;
+}
+
 #errorMessage {
     padding: 0.5em;
 }
