@@ -4,7 +4,7 @@
 ;(function(namespace) {
     'use strict';
 
-    namespace.expressStorageService = (function ($) {
+    namespace.serverStorageService = (function ($) {
 
         function publicSaveEntry(note, callback) {
             $.get({method: 'post', url: '/notes/'+id}).done((note) => {
