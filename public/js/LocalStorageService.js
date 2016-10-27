@@ -6,7 +6,7 @@
 
     namespace.localStorageService = (function () {
 
-        function publicSaveEntry(note, callback) {
+        function publicSave(note, callback) {
             var notes;
             publicGetAll((allNotes) => notes = allNotes);
             if (note.id == undefined || note.id == "") {
@@ -38,7 +38,7 @@
                 })) + 1;
         }
 
-        function publicGetEntry(id, callback) {
+        function publicGet(id, callback) {
             publicGetAll((notes) => callback(notes.filter((n) => n.id == id)[0]));
         }
 
@@ -57,9 +57,9 @@
         }
 
         return {
-            save: publicSaveEntry,
-            get: publicGetEntry,
-            getAll: publicGetAll
+            save: publicSave,
+            get: publicGet,
+            all: publicGetAll
         };
     })();
 }) (window.notesAppNamespace = window.notesAppNamespace || {});
