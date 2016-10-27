@@ -20,7 +20,7 @@
         }
 
         function publicGetVisibleNotesOrdered(callback) {
-            storageService.getAll((notes) => {
+            storageService.all((notes) => {
                 callback(notes.filter(n => filterShowFinished || !n.finishedDate).sort(privateCompareById));
             });
         }
@@ -29,7 +29,7 @@
             return n2[orderByField] == n1[orderByField] ? 0 : n2[orderByField] < n1[orderByField] ? -1 : 1;
         }
 
-        function publicUpdateNote(note, callback) {
+        function publicSaveNote(note, callback) {
             storageService.save(note, callback);
         }
 
@@ -49,7 +49,7 @@
             orderByField: publicOrderByField,
             setFilterState: publicSetFilterState,
             getVisibleNotesOrdered: publicGetVisibleNotesOrdered,
-            updateNote: publicUpdateNote,
+            updateNote: publicSaveNote,
             createNewNote: publicCreateNewNote,
             convertToNote: publicConvertToNote,
             getNoteById: publicGetNoteById
