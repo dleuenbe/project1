@@ -6,17 +6,27 @@
 
     namespace.serverStorageService = (function ($) {
 
-        function publicSaveEntry(note, callback) {
-            $.post({url: '/notes/'+note.id+'/', data: note}).done((id) => {
+        function publicSave(note, callback) {
+            if (note.id == "") {
+                privateAddNote(note, callback);
+            } else {
+                privateUpdateNote(note, callback);
+            }
+        }
+
+        function privateAddNote(note, callback) {
+            $.post({url: '/notes/', data: note}).done((id) => {
                 callback(id);
             });
         }
 
-        function privateConvertToNotes(inputObjects) {
-            return inputObjects.map(n => namespace.note.createNote(n));
+        function privateUpdateNote(note, callback) {
+            $.post({url: '/notes/' + note.id + '/', data: note}).done((id) => {
+                callback(id);
+            });
         }
 
-        function publicGetEntry(id, callback) {
+        function publicGet(id, callback) {
             $.getJSON({url: '/notes/'+id+'/'}).done((note) => {
                 callback(namespace.note.createNote(note));
             });
@@ -28,10 +38,14 @@
             });
         }
 
+        function privateConvertToNotes(inputObjects) {
+            return inputObjects.map(n => namespace.note.createNote(n));
+        }
+
         return {
-            save: publicSaveEntry,
-            get: publicGetEntry,
-            getAll: publicGetAll
+            save: publicSave,
+            get: publicGet,
+            all:publicGetAll
         };
     })(jQuery);
 }) (window.notesAppNamespace = window.notesAppNamespace || {});
