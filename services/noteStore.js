@@ -3,7 +3,6 @@ var db = new Datastore({ filename: './data/note.db', autoload: true });
 
 function Note(simpleNote)
 {
-    this.id = simpleNote.id;
     this.createDate = simpleNote.createDate;
     this.dueDate = simpleNote.dueDate;
     this.finishedDate = simpleNote.finishedDate;
@@ -17,7 +16,17 @@ function publicAdd(simpleNote, callback)
     var note= new Note(simpleNote);
     db.insert(note, function(err, savedSimpleNote){
         if(callback){
-            callback(privateSwitchId(savedSimpleNote));
+            callback(replaceId(savedSimpleNote));
+        }
+    });
+}
+
+function publicUpdate(simpleNote, callback)
+{
+    var note= new Note(simpleNote);
+    db.update({ _id: simpleNote.id}, note, {}, (err, numReplaced) => {
+       if (callback) {
+            callback(numReplaced);
         }
     });
 }
@@ -25,22 +34,22 @@ function publicAdd(simpleNote, callback)
 function publicGet(id, callback)
 {
     db.findOne({ _id: id }, function (err, note) {
-        callback( err, privateSwitchId(note));
+        callback( err, replaceId(note));
     });
 }
 
 function publicAll(callback)
 {
     db.find({}, function (err, simpleNotes) {
-        simpleNotes.forEach(n => privateSwitchId(n));
+        simpleNotes.forEach(n => replaceId(n));
         callback( err, simpleNotes);
     });
 }
 
-function privateSwitchId(simpleNote) {
+function replaceId(simpleNote) {
     simpleNote.id = simpleNote._id;
-    simpleNote._id = undefined;
+    delete simpleNote._id;
     return simpleNote;
 }
 
-module.exports = {add : publicAdd, get : publicGet, all : publicAll};
+module.exports = {add : publicAdd, update: publicUpdate, get : publicGet, all : publicAll};

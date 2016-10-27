@@ -7,6 +7,13 @@ module.exports.addNote = function(req, res)
     })
 };
 
+module.exports.updateNote = function(req, res)
+{
+    store.update(req.body, (count) => {
+        res.json(count);
+    })
+};
+
 module.exports.getNote = function(req, res)
 {
     store.get(req.params.id, function(err, note) {
