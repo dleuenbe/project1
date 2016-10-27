@@ -1,3 +1,5 @@
+'use strict';
+
 var store = require("../services/noteStore.js");
 
 module.exports.addNote = function(req, res)

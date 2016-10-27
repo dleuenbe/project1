@@ -1,3 +1,5 @@
+'use strict';
+
 var Datastore = require('nedb');
 var db = new Datastore({ filename: './data/note.db', autoload: true });
 
