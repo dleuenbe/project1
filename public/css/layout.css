@@ -11,7 +11,7 @@
     display: flex;
 }
 
-.first-column {
+.firstColumn {
     flex-basis: 14em;
     display: flex;
     margin-right: 0.5em;
