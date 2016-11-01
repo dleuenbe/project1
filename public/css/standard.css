@@ -1,4 +1,4 @@
-header, .description-textarea, .field-table td, .title-div, .due-date-div, .finished-date-div {
+header, .description-textarea, .fieldTable td, .title-div, .due-date-div, .finished-date-div {
     background-color: beige;
 }
 
@@ -10,7 +10,7 @@ footer, .filterBar {
     background-color: #c0c0c0;
 }
 
-.field-table  {
+.fieldTable  {
     background-color: #e7e7e7;
 }
 

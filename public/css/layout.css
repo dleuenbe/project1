@@ -125,12 +125,12 @@ footer {
 }
 /* end: filter and order */
 /* start: note edit page */
-.field-table  {
+.fieldTable  {
     margin: 0;
     width: 100%;
 }
 
-.field-table, .field-table td {
+.fieldTable, .fieldTable td {
     padding: 0.4em;
 }
 
@@ -146,7 +146,7 @@ footer {
     height: 2em;
 }
 
-.field-table tr td:first-child {
+.fieldTable tr td:first-child {
     width: 14em;
 }
 
