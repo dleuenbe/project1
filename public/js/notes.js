@@ -52,7 +52,7 @@
     }
 
     function updateFields(note) {
-        $("#id-field").val(note.id);
+        $("#idField").val(note.id);
         $("#titleField").val(note.title);
         $("#descriptionField").val(note.description);
         $("#dueDateField").val(note.dueDate);
