@@ -18,11 +18,11 @@ footer, .filterBar {
     color: red;
 }
 
-.noteEntryDiv:nth-child(2n) {
+.noteEntry:nth-child(2n) {
     background-color: #a4a4a4;
 }
 
-.noteEntryDiv:nth-child(2n + 1) {
+.noteEntry:nth-child(2n + 1) {
     background-color: #e4e4e4;
 }
 

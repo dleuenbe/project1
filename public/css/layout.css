@@ -1,5 +1,5 @@
 /* start: notes list */
-.noteEntryDiv, .dueDateDiv, .finishedDateDiv, .titleDiv {
+.noteEntry, .dueDateDiv, .finishedDateDiv, .titleDiv {
     padding: 0.5em;
 }
 
@@ -7,8 +7,9 @@
     border-radius: 0.5em;
 }
 
-.noteEntryDiv {
+.noteEntry {
     display: flex;
+    margin: 0;
 }
 
 .firstColumn {

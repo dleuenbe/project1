@@ -33,7 +33,7 @@
           <label class="btn" for="showFinished">Show Finished</label>
         </section>
         <main class="noteBar">
-          <div class="noteEntryDiv ">no data</div>
+          <div class="noteEntry ">no data</div>
         </main>
       </div>
       <div class="detailPage">
@@ -112,7 +112,7 @@
     <script type="text/javascript" src="js/notes.js"></script>
     <script id="notesTemplate" type="text/x-handlebars-template">
       {{#each this}}
-      <div class="noteEntryDiv">
+      <ul class="noteEntry">
         <div class="firstColumn">
           <div class="dueDateDiv"><b>due date:</b> {{ formattedDueDate }}</div>
           <div class="finishedDateDiv">
@@ -131,7 +131,7 @@
           <textarea class="descriptionTextarea"readonly rows="2">{{ description }}</textarea>
         </div>
         <button class="editButton" value="{{ id }}">edit</button>
-      </div>
+      </ul>
       {{/each}}
     </script>
   </body>
