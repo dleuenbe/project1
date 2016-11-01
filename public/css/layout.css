@@ -1,9 +1,9 @@
 /* start: notes list */
-.noteEntry, .dueDate, .finishedDate, .titleDiv {
+.noteEntry, .dueDate, .finishedDate, .title {
     padding: 0.5em;
 }
 
-.dueDate, .finishedDate, .titleDiv, .description {
+.dueDate, .finishedDate, .title, .description {
     border-radius: 0.5em;
 }
 
@@ -34,7 +34,7 @@
     flex-flow: wrap;
 }
 
-.titleDiv {
+.title {
     flex: 1;
     min-height: 1em;
     display: flex;
