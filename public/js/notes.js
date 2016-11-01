@@ -10,8 +10,8 @@
         $("#setFinishedDate").click(setFinishedDate);
         $("#clearFinishedDate").click(clearFinishedDate);
         $("#showFinished").change(updateFilter);
-        $(".filter-item").change(updateOrder);
-        $("#showFinished + label, .filter-item + label").mousedown(false);
+        $(".filterItem").change(updateOrder);
+        $("#showFinished + label, .filterItem + label").mousedown(false);
         $(".priorityField > label").click(updatePriorityView);
         $("#errorMessage").hide();
         updateOrder();
@@ -24,7 +24,7 @@
     }
 
     function updateOrder() {
-        var fieldName = $(".filter-item:checked").prop('id').substr('order-by-'.length);
+        var fieldName = $(".filterItem:checked").prop('id').substr('order-by-'.length);
         namespace.notesService.orderByField(fieldName);
         renderNotes();
     }
