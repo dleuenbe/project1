@@ -12,7 +12,7 @@
         $("#showFinished").change(updateFilter);
         $(".filter-item").change(updateOrder);
         $("#showFinished + label, .filter-item + label").mousedown(false);
-        $(".priority-field > label").click(updatePriorityView);
+        $(".priorityField > label").click(updatePriorityView);
         $("#errorMessage").hide();
         updateOrder();
         updateFilter();
@@ -124,8 +124,8 @@
 
     function updatePriorityView() {
         var pos = parseInt($("input[type='radio'].priorityInput:checked").attr("value"));
-        $(".priority-field > label:nth-child(-n+" + pos + ") > img").removeClass("grayscale");
-        $(".priority-field > label:nth-last-child(-n+" + (5 - pos) + ") > img").addClass("grayscale");
+        $(".priorityField > label:nth-child(-n+" + pos + ") > img").removeClass("grayscale");
+        $(".priorityField > label:nth-last-child(-n+" + (5 - pos) + ") > img").addClass("grayscale");
     }
 
     function registerHandlebarIfLte() {
