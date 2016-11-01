@@ -58,7 +58,7 @@
         $("#dueDateField").val(note.dueDate);
         $("#priority" + note.priority).prop("checked", true);
         $("#finishedDateField").val(note.finishedDate);
-        $("#createDate-field").val(note.createDate);
+        $("#createDateField").val(note.createDate);
         updatePriorityView();
     }
 
