@@ -6,7 +6,7 @@
         $("header > select").change(changeStyle);
         $(".newNote").click(newNote);
         $("#cancel-newNote").click(cancelEdit);
-        $("#save-newNote").click(saveEdit);
+        $("#saveNewNote").click(saveEdit);
         $("#setFinishedDate").click(setFinishedDate);
         $("#clearFinishedDate").click(clearFinishedDate);
         $("#showFinished").change(updateFilter);
