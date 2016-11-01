@@ -1,9 +1,9 @@
 /* start: notes list */
-.noteEntry, .dueDate, .finishedDateDiv, .titleDiv {
+.noteEntry, .dueDate, .finishedDate, .titleDiv {
     padding: 0.5em;
 }
 
-.dueDate, .finishedDateDiv, .titleDiv, .descriptionTextarea {
+.dueDate, .finishedDate, .titleDiv, .descriptionTextarea {
     border-radius: 0.5em;
 }
 
@@ -19,12 +19,12 @@
     flex-flow: wrap;
 }
 
-.dueDate, .finishedDateDiv {
+.dueDate, .finishedDate {
     box-sizing: border-box;
     flex: 0 0 100%;
 }
 
-.finishedDateDiv {
+.finishedDate {
     margin-top: 0.5em;
 }
 
