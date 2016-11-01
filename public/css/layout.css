@@ -112,7 +112,7 @@ footer {
 }
 /* end: common */
 /* start: filter and order */
-.filter-bar {
+.filterBar {
     margin: 0px;
     padding: 10px;
     display: flex;
