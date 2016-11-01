@@ -118,7 +118,7 @@
         var notesTemplateText = $("#notes-template").html();
         namespace.notesService.getVisibleNotesOrdered((notes) => {
             $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(notes);
-            $(".edit-button").click(editNote)
+            $(".editButton").click(editNote)
         });
     }
 
