@@ -57,7 +57,7 @@
         $("#descriptionField").val(note.description);
         $("#dueDateField").val(note.dueDate);
         $("#priority" + note.priority).prop("checked", true);
-        $("#finishedDate-field").val(note.finishedDate);
+        $("#finishedDateField").val(note.finishedDate);
         $("#createDate-field").val(note.createDate);
         updatePriorityView();
     }
@@ -98,12 +98,12 @@
     }
 
     function clearFinishedDate() {
-        $("#finishedDate-field").val("");
+        $("#finishedDateField").val("");
         return false;
     }
 
     function setFinishedDate() {
-        $("#finishedDate-field").val(formatedDate(new Date()));
+        $("#finishedDateField").val(formatedDate(new Date()));
         return false;
     }
 
