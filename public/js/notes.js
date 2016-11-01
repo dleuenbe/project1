@@ -9,9 +9,9 @@
         $("#save-newNote").click(saveEdit);
         $("#setFinishedDate").click(setFinishedDate);
         $("#clearFinishedDate").click(clearFinishedDate);
-        $("#show-finished").change(updateFilter);
+        $("#showFinished").change(updateFilter);
         $(".filter-item").change(updateOrder);
-        $("#show-finished + label, .filter-item + label").mousedown(false);
+        $("#showFinished + label, .filter-item + label").mousedown(false);
         $(".priority-field > label").click(updatePriorityView);
         $("#errorMessage").hide();
         updateOrder();
@@ -30,7 +30,7 @@
     }
 
     function updateFilter() {
-        var checked = $('#show-finished').prop('checked');
+        var checked = $('#showFinished').prop('checked');
         namespace.notesService.setFilterState(checked);
         renderNotes();
     }
