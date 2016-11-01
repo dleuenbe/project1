@@ -4,9 +4,9 @@
     $(function () {
         registerHandlebarIfLte();
         $("header > select").change(changeStyle);
-        $(".new-note").click(newNote);
-        $("#cancel-new-note").click(cancelEdit);
-        $("#save-new-note").click(saveEdit);
+        $(".newNote").click(newNote);
+        $("#cancel-newNote").click(cancelEdit);
+        $("#save-newNote").click(saveEdit);
         $("#setFinishedDate").click(setFinishedDate);
         $("#clearFinishedDate").click(clearFinishedDate);
         $("#show-finished").change(updateFilter);
