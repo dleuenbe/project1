@@ -28,7 +28,7 @@
     border-bottom-left-radius: 5px;
 }
 
-.toggle-right + label {
+.toggleRight + label {
     margin-right: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
