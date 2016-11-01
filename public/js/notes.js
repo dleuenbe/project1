@@ -115,7 +115,7 @@
     }
 
     function renderNotes() {
-        var notesTemplateText = $("#notes-template").html();
+        var notesTemplateText = $("#notesTemplate").html();
         namespace.notesService.getVisibleNotesOrdered((notes) => {
             $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(notes);
             $(".editButton").click(editNote)
