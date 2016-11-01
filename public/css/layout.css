@@ -156,11 +156,11 @@ footer {
     resize: vertical;
 }
 
-#titleField:invalid, #descriptionField:invalid, #dueDate-field:invalid {
+#titleField:invalid, #descriptionField:invalid, #dueDateField:invalid {
     border: 2px solid red;
 }
 
-#titleField:valid, #descriptionField:valid, #dueDate-field:valid {
+#titleField:valid, #descriptionField:valid, #dueDateField:valid {
     border: 1px solid green;
 }
 

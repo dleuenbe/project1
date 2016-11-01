@@ -55,7 +55,7 @@
         $("#id-field").val(note.id);
         $("#titleField").val(note.title);
         $("#descriptionField").val(note.description);
-        $("#dueDate-field").val(note.dueDate);
+        $("#dueDateField").val(note.dueDate);
         $("#priority" + note.priority).prop("checked", true);
         $("#finishedDate-field").val(note.finishedDate);
         $("#createDate-field").val(note.createDate);
