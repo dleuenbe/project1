@@ -5,7 +5,7 @@
         registerHandlebarIfLte();
         $("header > select").change(changeStyle);
         $(".newNote").click(newNote);
-        $("#cancel-newNote").click(cancelEdit);
+        $("#cancelNewNote").click(cancelEdit);
         $("#saveNewNote").click(saveEdit);
         $("#setFinishedDate").click(setFinishedDate);
         $("#clearFinishedDate").click(clearFinishedDate);
