@@ -48,7 +48,7 @@
     function showDetailPage(note) {
         updateFields(note);
         $(".overviewPage").hide();
-        $(".detail-page").show();
+        $(".detailPage").show();
     }
 
     function updateFields(note) {
@@ -70,7 +70,7 @@
 
     function showOverviewPage() {
         $(".overviewPage").show();
-        $(".detail-page").hide();
+        $(".detailPage").hide();
     }
 
     function cancelEdit() {
