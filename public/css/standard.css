@@ -1,4 +1,4 @@
-header, .descriptionTextarea, .fieldTable td, .titleDiv, .dueDateDiv, .finishedDateDiv {
+header, .descriptionTextarea, .fieldTable td, .titleDiv, .dueDate, .finishedDateDiv {
     background-color: beige;
 }
 
