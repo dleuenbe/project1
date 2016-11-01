@@ -3,7 +3,7 @@
     padding: 0.5em;
 }
 
-.dueDate, .finishedDate, .titleDiv, .descriptionTextarea {
+.dueDate, .finishedDate, .titleDiv, .description {
     border-radius: 0.5em;
 }
 
@@ -44,7 +44,7 @@
     padding: 0 0.5em;
 }
 
-.descriptionTextarea {
+.description {
     margin-top: 0.5em;
     box-sizing: border-box;
     flex: 1 0 100%;
