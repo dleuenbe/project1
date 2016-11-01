@@ -150,17 +150,17 @@ footer {
     width: 14em;
 }
 
-#title-field, #description-field {
+#titleField, #description-field {
     box-sizing: border-box;
     width: 100%;
     resize: vertical;
 }
 
-#title-field:invalid, #description-field:invalid, #dueDate-field:invalid {
+#titleField:invalid, #description-field:invalid, #dueDate-field:invalid {
     border: 2px solid red;
 }
 
-#title-field:valid, #description-field:valid, #dueDate-field:valid {
+#titleField:valid, #description-field:valid, #dueDate-field:valid {
     border: 1px solid green;
 }
 

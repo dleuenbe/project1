@@ -53,7 +53,7 @@
 
     function updateFields(note) {
         $("#id-field").val(note.id);
-        $("#title-field").val(note.title);
+        $("#titleField").val(note.title);
         $("#description-field").val(note.description);
         $("#dueDate-field").val(note.dueDate);
         $("#priority" + note.priority).prop("checked", true);
