@@ -117,7 +117,7 @@
     function renderNotes() {
         var notesTemplateText = $("#notesTemplate").html();
         namespace.notesService.getVisibleNotesOrdered((notes) => {
-            $(".note-bar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(notes);
+            $(".noteBar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(notes);
             $(".editButton").click(editNote)
         });
     }
