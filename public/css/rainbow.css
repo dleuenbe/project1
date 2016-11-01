@@ -18,25 +18,25 @@ footer, .filterBar {
     color: coral;
 }
 
-.note-entry-div:nth-child(7n + 1) {
+.noteEntryDiv:nth-child(7n + 1) {
     background-color: red;
 }
-.note-entry-div:nth-child(7n + 2) {
+.noteEntryDiv:nth-child(7n + 2) {
     background-color: orange;
 }
-.note-entry-div:nth-child(7n + 3) {
+.noteEntryDiv:nth-child(7n + 3) {
     background-color: yellow;
 }
-.note-entry-div:nth-child(7n + 4) {
+.noteEntryDiv:nth-child(7n + 4) {
     background-color: green;
 }
-.note-entry-div:nth-child(7n + 5) {
+.noteEntryDiv:nth-child(7n + 5) {
     background-color: lightblue;
 }
-.note-entry-div:nth-child(7n + 6) {
+.noteEntryDiv:nth-child(7n + 6) {
     background-color: blue;
 }
-.note-entry-div:nth-child(7n + 7) {
+.noteEntryDiv:nth-child(7n + 7) {
     background-color: darkviolet;
 }
 
