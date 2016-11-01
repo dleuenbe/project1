@@ -47,7 +47,7 @@
 
     function showDetailPage(note) {
         updateFields(note);
-        $(".overview-page").hide();
+        $(".overviewPage").hide();
         $(".detail-page").show();
     }
 
@@ -69,7 +69,7 @@
     }
 
     function showOverviewPage() {
-        $(".overview-page").show();
+        $(".overviewPage").show();
         $(".detail-page").hide();
     }
 
