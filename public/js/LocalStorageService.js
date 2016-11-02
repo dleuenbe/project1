@@ -1,7 +1,7 @@
 /**
  * Created by david on 07.10.16.
  */
-;(function(namespace) {
+;(function (namespace) {
     'use strict';
 
     namespace.localStorageService = (function () {
@@ -25,7 +25,7 @@
                 }
             }
             notes.push(note);
-         }
+        }
 
         function privateGetNextId() {
             var notes;
@@ -45,7 +45,7 @@
         function publicGetAll(callback) {
             var notesFromLocalStorageString = localStorage.getItem("notes");
             if (notesFromLocalStorageString === null) {
-                notesFromLocalStorageString=defaultNotesFromJS;
+                notesFromLocalStorageString = namespace.defaultNotesFromJS;
             }
             var notesFromLocalStorageObjects = JSON.parse(notesFromLocalStorageString);
             var notesFromLocalStorageNoteObjects = privateConvertToNotes(notesFromLocalStorageObjects);
@@ -62,4 +62,4 @@
             all: publicGetAll
         };
     })();
-}) (window.notesAppNamespace = window.notesAppNamespace || {});
+})(window.notesAppNamespace = window.notesAppNamespace || {});
