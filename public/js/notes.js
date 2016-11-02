@@ -1,9 +1,8 @@
 jQuery.noConflict();
-;(function(namespace, $) {
+;(function(namespace, $, moment, handlebars) {
     'use strict';
 
     $(function () {
-        registerHandlebarIfLte();
         $("header > select").change(changeStyle);
         $(".newNote").click(newNote);
         $("#cancelNewNote").click(cancelEdit);
@@ -109,16 +108,13 @@ jQuery.noConflict();
     }
 
     function formatedDate(date) {
-        var day = ("0" + date.getDate()).slice(-2);
-        var month = ("0" + (date.getMonth() + 1)).slice(-2);
-        var year = date.getFullYear();
-        return year + "-" + month + "-" + day;
+        return moment(date).format('YYYY-MM-DD');
     }
 
     function renderNotes() {
         var notesTemplateText = $("#notesTemplate").html();
         namespace.notesService.getVisibleNotesOrdered((notes) => {
-            $(".noteBar").get(0).innerHTML = Handlebars.compile(notesTemplateText)(notes);
+            $(".noteBar").get(0).innerHTML = handlebars.compile(notesTemplateText)(notes);
             $(".editButton").click(editNote)
         });
     }
@@ -129,9 +125,4 @@ jQuery.noConflict();
         $(".priorityField > label:nth-last-child(-n+" + (5 - pos) + ") > img").addClass("grayscale");
     }
 
-    function registerHandlebarIfLte() {
-        Handlebars.registerHelper('ifLte', function (v1, v2, options) {
-            return (v1 <= v2) ? options.fn(this) : options.inverse(this);
-        });
-    }
-}) (window.notesAppNamespace = window.notesAppNamespace || {}, jQuery);
+}) (window.notesAppNamespace = window.notesAppNamespace || {}, jQuery, moment, Handlebars);

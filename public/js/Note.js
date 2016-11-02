@@ -1,7 +1,7 @@
 /**
  * Created by david on 07.10.16.
  */
-;(function(namespace) {
+;(function(namespace, moment) {
     'use strict';
 
     namespace.note = (function () {
@@ -41,4 +41,4 @@
             createNote: publicCreateNote
         }
     })();
-})(window.notesAppNamespace = window.notesAppNamespace || {});
+})(window.notesAppNamespace = window.notesAppNamespace || {}, moment);
