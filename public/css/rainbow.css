@@ -11,7 +11,7 @@ footer, .filterBar {
 }
 
 .fieldTable  {
-    background-color: chocolate;
+    background: linear-gradient(yellow, green);
 }
 
 #errorMessage {
