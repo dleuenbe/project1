@@ -121,7 +121,7 @@ footer {
 }
 /* end: filter and order */
 /* start: note edit page */
-.fieldTable  {
+#editForm  {
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
@@ -129,16 +129,16 @@ footer {
     width: 100%;
 }
 
-.fieldTable {
+#editForm {
     padding: 0.4em;
 }
 
-.fieldTable p {
+#editForm p {
     margin: 0.4em;
     flex: 1 0 15%;
 }
 
-.fieldTable input, .fieldTable div, .fieldTable textarea {
+#editForm input, #editForm div, #editForm textarea {
     margin: 0.4em;
     flex: 1 0 80%;
 }
@@ -159,7 +159,7 @@ footer {
     height: 2em;
 }
 
-.fieldTable tr td:first-child {
+#editForm tr td:first-child {
     width: 14em;
 }
 

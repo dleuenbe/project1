@@ -1,4 +1,4 @@
-header, .description, .fieldTable td, .title, .dueDate, .finishedDate {
+header, .description, #editForm td, .title, .dueDate, .finishedDate {
     background-color: white;
 }
 
@@ -10,7 +10,7 @@ footer, .filterBar {
     background-color: #c4c4c4;
 }
 
-.fieldTable  {
+#editForm  {
     background: linear-gradient(yellow, green);
 }
 
