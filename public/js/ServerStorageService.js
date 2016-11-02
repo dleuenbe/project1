@@ -1,6 +1,7 @@
 /**
  * Created by david on 07.10.16.
  */
+jQuery.noConflict();
 ;(function(namespace, $) {
     'use strict';
 
