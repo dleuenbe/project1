@@ -64,7 +64,7 @@
 
 /* end: notes list */
 /* start: page control */
-#content{
+.overviewPage, .detailPage{
     padding-top: 3em;
 }
 

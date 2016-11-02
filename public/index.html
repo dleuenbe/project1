@@ -15,111 +15,109 @@
         <option value="css/rainbow.css">Rainbow</option>
     </select>
 </header>
-<div id="content">
-    <div class="overviewPage">
-        <section class="filterBar">
-            <button class="newNote">Create new Note</button>
-            <div class="orderWrapper">
-                <input type="radio" name="orderSelection" id="orderByFinishedDate" class="filterItem toggle toggleLeft">
-                <label for="orderByFinishedDate">By finished Date</label>
-                <input type="radio" name="orderSelection" id="orderByCreateDate" class="filterItem toggle" checked>
-                <label for="orderByCreateDate">By create Date</label>
-                <input type="radio" name="orderSelection" id="orderByDueDate" class="filterItem toggle" checked>
-                <label for="orderByDueDate">By due Date</label>
-                <input type="radio" name="orderSelection" id="orderByPriority" class="filterItem toggle toggleRight">
-                <label for="orderByPriority">By Priority</label>
-            </div>
-            <input id="showFinished" type="checkbox" class="toggle toggleLeft toggleRight">
-            <label class="btn" for="showFinished">Show Finished</label>
-        </section>
-        <main class="noteBar">
-            <div class="noteEntry ">no data</div>
-        </main>
-    </div>
-    <div class="detailPage">
-        <form id="editForm" name="editForm" class="fieldTable">
-            <p>Title</p>
-            <input id="titleField" name="title" type="text" required>
-            <p>Description</p>
-            <textarea id="descriptionField" name="description" rows="8" required></textarea>
-            <p>Priority</p>
-            <div class="priorityField">
-                <label for="priority1">
-                    <input type="radio" class="priorityInput" name="priority" id="priority1" value="1" checked>
-                    <img class="priority1" src="img/priority.svg" alt="1">
-                </label>
-                <label for="priority2">
-                    <input type="radio" class="priorityInput" name="priority" id="priority2" value="2">
-                    <img class="priority2" src="img/priority.svg" alt="2">
-                </label>
-                <label for="priority3">
-                    <input type="radio" class="priorityInput" name="priority" id="priority3" value="3">
-                    <img class="priority3" src="img/priority.svg" alt="3">
-                </label>
-                <label for="priority4">
-                    <input type="radio" class="priorityInput" name="priority" id="priority4" value="4">
-                    <img class="priority4" src="img/priority.svg" alt="4">
-                </label>
-                <label for="priority5">
-                    <input type="radio" class="priorityInput" name="priority" id="priority5" value="5">
-                    <img class="priority5" src="img/priority.svg" alt="5">
-                </label>
-            </div>
-            <p>Todo until</p>
-            <input id="dueDateField" name="dueDate" type="date" required>
-            <p>Done at</p>
-            <div>
-                <button id="setFinishedDate">now</button>
-                <button id="clearFinishedDate">clear</button>
-                <input id="finishedDateField" name="finishedDate" type="date">
-            </div>
-            <div class="buttonField">
-                <div id="errorMessage">Please fill required fields</div>
-                <button type="submit" id="saveNewNote">Save</button>
-                <button id="cancelNewNote">Cancel</button>
-            </div>
-            <input type="hidden" id="idField" name="id" value="">
-            <input type="hidden" id="createDateField" name="createDate" value="">
-        </form>
-    </div>
-    <footer>
-        <div>Version 0.5</div>
-        <div>&copy; 2016 by D. Leuenberger</div>
-    </footer>
-
-    <script type="text/javascript" src="lib/jquery.js"></script>
-    <script type="text/javascript" src="lib/handlebars.js"></script>
-    <script type="text/javascript" src="lib/moment.js"></script>
-    <script type="text/javascript" src="js/Note.js"></script>
-    <script type="text/javascript" src="js/LocalStorageService.js"></script>
-    <script type="text/javascript" src="js/ServerStorageService.js"></script>
-    <script type="text/javascript" src="js/NotesService.js"></script>
-    <script type="text/javascript" src="js/daten.js"></script>
-    <script type="text/javascript" src="js/notes.js"></script>
-    <script id="notesTemplate" type="text/x-handlebars-template">
-        {{#each this}}
-        <ul class="noteEntry">
-            <div class="firstColumn">
-                <div class="dueDate"><b>due date:</b> {{ formattedDueDate }}</div>
-                <div class="finishedDate">
-                    {{#if finishedDate }}<b>finished:</b> {{ formattedFinishedDate }}{{/if}}
-                </div>
-            </div>
-            <div class="secondColumn">
-                <div class="title">{{ title }}</div>
-                <div class="priority">
-                    <img class="priority1" src="img/priority.svg" alt="1">
-                    <img class="priority2 {{#ifLte priority 1 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="2">
-                    <img class="priority3 {{#ifLte priority 2 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="3">
-                    <img class="priority4 {{#ifLte priority 3 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="4">
-                    <img class="priority5 {{#ifLte priority 4 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="5">
-                </div>
-                <textarea class="description" readonly rows="2">{{ description }}</textarea>
-            </div>
-            <button class="editButton" value="{{ id }}">edit</button>
-        </ul>
-        {{/each}}
-    </script>
+<div class="overviewPage">
+    <section class="filterBar">
+        <button class="newNote">Create new Note</button>
+        <div class="orderWrapper">
+            <input type="radio" name="orderSelection" id="orderByFinishedDate" class="filterItem toggle toggleLeft">
+            <label for="orderByFinishedDate">By finished Date</label>
+            <input type="radio" name="orderSelection" id="orderByCreateDate" class="filterItem toggle" checked>
+            <label for="orderByCreateDate">By create Date</label>
+            <input type="radio" name="orderSelection" id="orderByDueDate" class="filterItem toggle" checked>
+            <label for="orderByDueDate">By due Date</label>
+            <input type="radio" name="orderSelection" id="orderByPriority" class="filterItem toggle toggleRight">
+            <label for="orderByPriority">By Priority</label>
+        </div>
+        <input id="showFinished" type="checkbox" class="toggle toggleLeft toggleRight">
+        <label class="btn" for="showFinished">Show Finished</label>
+    </section>
+    <main class="noteBar">
+        <div class="noteEntry ">no data</div>
+    </main>
 </div>
+<div class="detailPage">
+    <form id="editForm" name="editForm" class="fieldTable">
+        <p>Title</p>
+        <input id="titleField" name="title" type="text" required>
+        <p>Description</p>
+        <textarea id="descriptionField" name="description" rows="8" required></textarea>
+        <p>Priority</p>
+        <div class="priorityField">
+            <label for="priority1">
+                <input type="radio" class="priorityInput" name="priority" id="priority1" value="1" checked>
+                <img class="priority1" src="img/priority.svg" alt="1">
+            </label>
+            <label for="priority2">
+                <input type="radio" class="priorityInput" name="priority" id="priority2" value="2">
+                <img class="priority2" src="img/priority.svg" alt="2">
+            </label>
+            <label for="priority3">
+                <input type="radio" class="priorityInput" name="priority" id="priority3" value="3">
+                <img class="priority3" src="img/priority.svg" alt="3">
+            </label>
+            <label for="priority4">
+                <input type="radio" class="priorityInput" name="priority" id="priority4" value="4">
+                <img class="priority4" src="img/priority.svg" alt="4">
+            </label>
+            <label for="priority5">
+                <input type="radio" class="priorityInput" name="priority" id="priority5" value="5">
+                <img class="priority5" src="img/priority.svg" alt="5">
+            </label>
+        </div>
+        <p>Todo until</p>
+        <input id="dueDateField" name="dueDate" type="date" required>
+        <p>Done at</p>
+        <div>
+            <button id="setFinishedDate">now</button>
+            <button id="clearFinishedDate">clear</button>
+            <input id="finishedDateField" name="finishedDate" type="date">
+        </div>
+        <div class="buttonField">
+            <div id="errorMessage">Please fill required fields</div>
+            <button type="submit" id="saveNewNote">Save</button>
+            <button id="cancelNewNote">Cancel</button>
+        </div>
+        <input type="hidden" id="idField" name="id" value="">
+        <input type="hidden" id="createDateField" name="createDate" value="">
+    </form>
+</div>
+<footer>
+    <div>Version 0.5</div>
+    <div>&copy; 2016 by D. Leuenberger</div>
+</footer>
+
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script type="text/javascript" src="lib/handlebars.js"></script>
+<script type="text/javascript" src="lib/moment.js"></script>
+<script type="text/javascript" src="js/Note.js"></script>
+<script type="text/javascript" src="js/LocalStorageService.js"></script>
+<script type="text/javascript" src="js/ServerStorageService.js"></script>
+<script type="text/javascript" src="js/NotesService.js"></script>
+<script type="text/javascript" src="js/daten.js"></script>
+<script type="text/javascript" src="js/notes.js"></script>
+<script id="notesTemplate" type="text/x-handlebars-template">
+    {{#each this}}
+    <ul class="noteEntry">
+        <div class="firstColumn">
+            <div class="dueDate"><b>due date:</b> {{ formattedDueDate }}</div>
+            <div class="finishedDate">
+                {{#if finishedDate }}<b>finished:</b> {{ formattedFinishedDate }}{{/if}}
+            </div>
+        </div>
+        <div class="secondColumn">
+            <div class="title">{{ title }}</div>
+            <div class="priority">
+                <img class="priority1" src="img/priority.svg" alt="1">
+                <img class="priority2 {{#ifLte priority 1 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="2">
+                <img class="priority3 {{#ifLte priority 2 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="3">
+                <img class="priority4 {{#ifLte priority 3 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="4">
+                <img class="priority5 {{#ifLte priority 4 }} grayscale {{/ifLte}}" src="img/priority.svg" alt="5">
+            </div>
+            <textarea class="description" readonly rows="2">{{ description }}</textarea>
+        </div>
+        <button class="editButton" value="{{ id }}">edit</button>
+    </ul>
+    {{/each}}
+</script>
 </body>
 </html>
