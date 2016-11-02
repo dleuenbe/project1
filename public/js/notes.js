@@ -1,4 +1,4 @@
-;(function(namespace) {
+;(function(namespace, $) {
     'use strict';
 
     $(function () {
@@ -133,4 +133,4 @@
             return (v1 <= v2) ? options.fn(this) : options.inverse(this);
         });
     }
-}) (window.notesAppNamespace = window.notesAppNamespace || {});
+}) (window.notesAppNamespace = window.notesAppNamespace || {}, jQuery);

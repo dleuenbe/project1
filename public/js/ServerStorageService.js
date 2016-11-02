@@ -1,10 +1,10 @@
 /**
  * Created by david on 07.10.16.
  */
-;(function(namespace) {
+;(function(namespace, $) {
     'use strict';
 
-    namespace.serverStorageService = (function ($) {
+    namespace.serverStorageService = (function ( ) {
 
         function publicSave(note, callback) {
             if (note.id == "") {
@@ -47,5 +47,5 @@
             get: publicGet,
             all:publicGetAll
         };
-    })(jQuery);
-}) (window.notesAppNamespace = window.notesAppNamespace || {});
+    })();
+}) (window.notesAppNamespace = window.notesAppNamespace || {}, jQuery);
