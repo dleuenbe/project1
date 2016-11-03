@@ -1,5 +1,5 @@
 jQuery.noConflict();
-(function(namespace, $, moment, handlebars) {
+(function (namespace, $, moment, handlebars) {
     'use strict';
 
     $(function () {
@@ -124,4 +124,4 @@ jQuery.noConflict();
         $(".priorityField > label:nth-last-child(-n+" + (5 - pos) + ") > img").addClass("grayscale");
     }
 
-}) (window.notesAppNamespace = window.notesAppNamespace || {}, jQuery, moment, Handlebars);
+})(window.notesAppNamespace = window.notesAppNamespace || {}, jQuery, moment, Handlebars);

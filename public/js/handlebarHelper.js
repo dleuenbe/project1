@@ -1,4 +1,4 @@
-(function(handlebars) {
+(function (handlebars) {
     'use strict';
 
     $(function () {
@@ -10,4 +10,4 @@
             return (v1 <= v2) ? options.fn(this) : options.inverse(this);
         });
     }
-}) (Handlebars);
+})(Handlebars);

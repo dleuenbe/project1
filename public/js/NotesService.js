@@ -1,7 +1,7 @@
 /**
  * Created by david on 07.10.16.
  */
-(function(namespace) {
+(function (namespace) {
     'use strict';
 
     namespace.notesService = (function (storageService, note) {
@@ -56,4 +56,4 @@
         };
 
     })(namespace.serverStorageService, namespace.note);
-}) (window.notesAppNamespace = window.notesAppNamespace || {});
+})(window.notesAppNamespace = window.notesAppNamespace || {});

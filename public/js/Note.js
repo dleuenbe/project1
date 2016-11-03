@@ -1,7 +1,7 @@
 /**
  * Created by david on 07.10.16.
  */
-(function(namespace, moment) {
+(function (namespace, moment) {
     'use strict';
 
     namespace.note = (function () {
@@ -21,8 +21,14 @@
                     this.priority = 1;
                 }
             }
-            get formattedDueDate() { return formatDateFromNow(this.dueDate); };
-            get formattedFinishedDate() { return formatDateFromNow(this.finishedDate); };
+
+            get formattedDueDate() {
+                return formatDateFromNow(this.dueDate);
+            };
+
+            get formattedFinishedDate() {
+                return formatDateFromNow(this.finishedDate);
+            };
         }
 
         function formatDateFromNow(date) {

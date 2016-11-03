@@ -2,10 +2,10 @@
  * Created by david on 07.10.16.
  */
 jQuery.noConflict();
-(function(namespace, $) {
+(function (namespace, $) {
     'use strict';
 
-    namespace.serverStorageService = (function ( ) {
+    namespace.serverStorageService = (function () {
 
         function publicSave(note, callback) {
             if (note.id == "") {
@@ -28,7 +28,7 @@ jQuery.noConflict();
         }
 
         function publicGet(id, callback) {
-            $.getJSON({url: '/notes/'+id+'/'}).done((note) => {
+            $.getJSON({url: '/notes/' + id + '/'}).done((note) => {
                 callback(namespace.note.createNote(note));
             });
         }
@@ -46,7 +46,7 @@ jQuery.noConflict();
         return {
             save: publicSave,
             get: publicGet,
-            all:publicGetAll
+            all: publicGetAll
         };
     })();
-}) (window.notesAppNamespace = window.notesAppNamespace || {}, jQuery);
+})(window.notesAppNamespace = window.notesAppNamespace || {}, jQuery);
