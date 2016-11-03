@@ -1,4 +1,4 @@
-;(function(handlebars) {
+(function(handlebars) {
     'use strict';
 
     $(function () {

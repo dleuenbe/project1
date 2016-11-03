@@ -1,5 +1,5 @@
 jQuery.noConflict();
-;(function(namespace, $, moment, handlebars) {
+(function(namespace, $, moment, handlebars) {
     'use strict';
 
     $(function () {

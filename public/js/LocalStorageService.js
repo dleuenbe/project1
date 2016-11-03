@@ -1,7 +1,7 @@
 /**
  * Created by david on 07.10.16.
  */
-;(function (namespace) {
+(function (namespace) {
     'use strict';
 
     namespace.localStorageService = (function () {

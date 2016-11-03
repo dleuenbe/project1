@@ -1,7 +1,7 @@
 /**
  * Created by david on 07.10.16.
  */
-;(function(namespace, moment) {
+(function(namespace, moment) {
     'use strict';
 
     namespace.note = (function () {

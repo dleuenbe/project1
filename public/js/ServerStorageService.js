@@ -2,7 +2,7 @@
  * Created by david on 07.10.16.
  */
 jQuery.noConflict();
-;(function(namespace, $) {
+(function(namespace, $) {
     'use strict';
 
     namespace.serverStorageService = (function ( ) {
