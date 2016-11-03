@@ -13,7 +13,6 @@ jQuery.noConflict();
         $(".filterItem").change(updateOrder);
         $("#showFinished + label, .filterItem + label").mousedown(false);
         $(".priorityField > label").click(updatePriorityView);
-        $("#errorMessage").hide();
         updateOrder();
         updateFilter();
         renderNotes();

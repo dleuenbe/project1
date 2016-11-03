@@ -176,8 +176,4 @@ footer {
 #titleField:valid, #descriptionField:valid, #dueDateField:valid {
     border: 1px solid green;
 }
-
-#errorMessage {
-    padding: 0.5em;
-}
 /* end: note edit page*/
