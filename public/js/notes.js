@@ -114,7 +114,7 @@ jQuery.noConflict();
         var notesTemplateText = $("#notesTemplate").html();
         namespace.notesService.getVisibleNotesOrdered((notes) => {
             $(".noteBar").get(0).innerHTML = handlebars.compile(notesTemplateText)(notes);
-            $(".editButton").click(editNote)
+            $(".editButton").click(editNote);
         });
     }
 
