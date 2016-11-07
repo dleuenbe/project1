@@ -13,9 +13,11 @@ jQuery.noConflict();
         $(".filterItem").change(updateOrder);
         $("#showFinished + label, .filterItem + label").mousedown(false);
         $(".priorityField > label").click(updatePriorityView);
+        registerWebsocket();
         updateOrder();
         updateFilter();
         renderNotes();
+        initWebsocket();
     });
 
     function changeStyle(event) {
@@ -26,6 +28,24 @@ jQuery.noConflict();
         var fieldName = $(".filterItem:checked").prop('id').substr('order-by-'.length);
         namespace.notesService.orderByField(fieldName);
         renderNotes();
+    }
+
+    function registerWebsocket() {
+        namespace.socketio.register('notes', renderNotes);
+        namespace.socketio.register('connect', connectWebsocket);
+        namespace.socketio.register('disconnect', disconnectWebsocket);
+    }
+
+    function connectWebsocket() {
+        $("#websocketState").get(0).innerHTML = "websocket connected";
+    }
+
+    function disconnectWebsocket() {
+        $("#websocketState").get(0).innerHTML = "websocket disconnected";
+    }
+
+    function initWebsocket() {
+        namespace.socketio.init();
     }
 
     function updateFilter() {

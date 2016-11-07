@@ -6,6 +6,7 @@ module.exports.addNote = function(req, res)
 {
     store.add(req.body, (note) => {
         res.json(note.id);
+        global.io.sockets.emit('notes', { id: node.id });
     })
 };
 
@@ -13,6 +14,7 @@ module.exports.updateNote = function(req, res)
 {
     store.update(req.body, (count) => {
         res.json(count);
+        global.io.sockets.emit('notes', { id: req.param("id") });
     })
 };
 
