@@ -1,5 +1,5 @@
 {
-  "name": "Notes - project1",
+  "name": "Notes-project1",
   "version": "0.8.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "hbs": "~4.0.0",
     "morgan": "~1.7.0",
     "nedb": "^1.8.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.5.1"
   }
 }
