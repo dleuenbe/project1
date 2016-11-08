@@ -1,4 +1,4 @@
-{"createDate":"2016-10-28","dueDate":"2016-11-10","finishedDate":"","title":"Offline Zertifikat","description":"Es kann noch ein Offline Zertifikat für diese Seite erstellt werden.","priority":"2","_id":"37hG8M3ScO2WFmsk"}
+{"createDate":"2016-10-28","dueDate":"2016-11-10","finishedDate":"","title":"Offline Manifest","description":"Es kann noch ein Offline Manifest für diese Seite erstellt werden.","priority":"2","_id":"37hG8M3ScO2WFmsk"}
 {"createDate":"2016-10-28","dueDate":"2016-11-10","finishedDate":"","title":"Abgabe branch erstellen","description":"Es muss noch ein Branch mit dem Namen Abgabe erstellt werden.","priority":"5","_id":"9NgW5nQt0K807C1S"}
 {"createDate":"2016-11-08","dueDate":"2016-11-09","finishedDate":"2016-11-08","title":"Readme überprüfen","description":"Sicherstellen, dass im Readme alles wichtige erwähnt ist.","priority":"5","_id":"Yf2CUKitAL6gYEDb"}
 {"createDate":"2016-10-28","dueDate":"2016-11-09","finishedDate":"2016-11-07","title":"Websocket implementieren","description":"Für die Seite kann noch ein Websocket implementiert werden. Damit alle Clients Änderungen mitbekommen.","priority":"2","_id":"dJgSDaGF1PwZM5fI"}
