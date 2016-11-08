@@ -6,7 +6,7 @@ module.exports.addNote = function(req, res)
 {
     store.add(req.body, (note) => {
         res.json(note.id);
-        global.io.sockets.emit('notes', { id: node.id });
+        global.io.sockets.emit('notes', { id: note.id });
     })
 };
 
