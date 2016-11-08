@@ -4,7 +4,7 @@ jQuery.noConflict();
 
     $(function () {
         $("header > select").change(changeStyle);
-        $(".newNote").click(newNote);
+        $(".newNote").click(newNoteWithHistory);
         $("#cancelNewNote").click(cancelEdit);
         $("#saveNewNote").click(saveEdit);
         $("#setFinishedDate").click(setFinishedDate);
@@ -18,7 +18,25 @@ jQuery.noConflict();
         updateFilter();
         renderNotes();
         initWebsocket();
+        initHistory();
     });
+
+    function initHistory() {
+        history.pushState({page: 'main'}, null, 'index.html');
+        window.addEventListener('popstate', data => {
+            restorePage(data);
+        });
+    }
+
+    function restorePage(data) {
+        if (data.state.page == 'main') {
+            showOverviewPage();
+        } else if (data.state.page == 'edit') {
+            editNoteWithId(data.state.id);
+        } else if (data.state.page == 'new') {
+            newNote();
+        }
+    }
 
     function changeStyle(event) {
         $("#stylesheetLink").attr("href", event.target.value);
@@ -54,6 +72,11 @@ jQuery.noConflict();
         renderNotes();
     }
 
+    function newNoteWithHistory() {
+        history.pushState({page: 'new'}, null, 'index.html');
+        newNote();
+    }
+
     function newNote() {
         var note = namespace.notesService.createNewNote();
         showDetailPage(note);
@@ -61,6 +84,11 @@ jQuery.noConflict();
 
     function editNote(event) {
         var id = event.target.value;
+        history.pushState({page: 'edit', id: id}, null, 'index.html');
+        editNoteWithId(id);
+    }
+
+    function editNoteWithId(id) {
         namespace.notesService.getNoteById(id, (note) => showDetailPage(note));
     }
 
@@ -87,13 +115,18 @@ jQuery.noConflict();
         return notValid.length == 0;
     }
 
+    function showOverviewPageWithHistory() {
+        history.pushState({page: 'main'}, null, 'index.html');
+        showOverviewPage();
+    }
+
     function showOverviewPage() {
         $(".overviewPage").show();
         $(".detailPage").hide();
     }
 
     function cancelEdit() {
-        showOverviewPage();
+        showOverviewPageWithHistory();
         return false;
     }
 
@@ -102,7 +135,7 @@ jQuery.noConflict();
             return false;
         }
         namespace.notesService.updateNote(createNoteFromForm(), () => {
-            showOverviewPage();
+            showOverviewPageWithHistory();
             renderNotes();
         });
         return false;
