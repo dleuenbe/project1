@@ -3,23 +3,26 @@ jQuery.noConflict();
     'use strict';
 
     $(function () {
+        initEventListener();
+        initWebsocket();
+        initHistory();
+        updateOrder();
+        updateFilter();
+        renderNotes();
+    });
+
+    function initEventListener() {
         $("header > select").change(changeStyle);
         $(".newNote").click(newNoteWithHistory);
         $("#cancelNewNote").click(cancelEdit);
         $("#saveNewNote").click(saveEdit);
         $("#setFinishedDate").click(setFinishedDate);
         $("#clearFinishedDate").click(clearFinishedDate);
-        $("#showFinished").change(updateFilter);
-        $(".filterItem").change(updateOrder);
+        $("#showFinished").change(renderUpdatedFilter);
+        $(".filterItem").change(renderUpdatedOrder);
         $("#showFinished + label, .filterItem + label").mousedown(false);
         $(".priorityField > label").click(updatePriorityView);
-        registerWebsocket();
-        updateOrder();
-        updateFilter();
-        renderNotes();
-        initWebsocket();
-        initHistory();
-    });
+    }
 
     function initHistory() {
         history.pushState({page: 'main'}, null, 'index.html');
@@ -42,13 +45,22 @@ jQuery.noConflict();
         $("#stylesheetLink").attr("href", event.target.value);
     }
 
-    function updateOrder() {
-        var fieldName = $(".filterItem:checked").prop('id').substr('orderBy'.length).toLowerCase();
-        namespace.notesService.orderByField(fieldName);
+    function renderUpdatedOrder() {
+        updateOrder();
         renderNotes();
     }
 
-    function registerWebsocket() {
+    function updateOrder() {
+        var fieldName = $(".filterItem:checked").prop('id').substr('orderBy'.length).toLowerCase();
+        namespace.notesService.orderByField(fieldName);
+    }
+
+    function initWebsocket() {
+        registerWebsocketCallbacks();
+        namespace.socketio.init();
+    }
+
+    function registerWebsocketCallbacks() {
         namespace.socketio.register('notes', renderNotes);
         namespace.socketio.register('connect', connectWebsocket);
         namespace.socketio.register('disconnect', disconnectWebsocket);
@@ -62,14 +74,14 @@ jQuery.noConflict();
         $("#websocketState").get(0).innerHTML = "websocket disconnected";
     }
 
-    function initWebsocket() {
-        namespace.socketio.init();
+    function renderUpdatedFilter() {
+        updateFilter();
+        renderNotes();
     }
 
     function updateFilter() {
         var checked = $('#showFinished').prop('checked');
         namespace.notesService.setFilterState(checked);
-        renderNotes();
     }
 
     function newNoteWithHistory() {
