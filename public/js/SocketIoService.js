@@ -4,7 +4,7 @@
 (function (namespace, io) {
     'use strict';
 
-    namespace.socketio = (function () {
+    namespace.socketIoService = (function () {
 
         var callbacks = {};
 

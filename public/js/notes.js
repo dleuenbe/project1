@@ -57,13 +57,13 @@ jQuery.noConflict();
 
     function initWebsocket() {
         registerWebsocketCallbacks();
-        namespace.socketio.init();
+        namespace.socketIoService.init();
     }
 
     function registerWebsocketCallbacks() {
-        namespace.socketio.register('notes', renderNotes);
-        namespace.socketio.register('connect', connectWebsocket);
-        namespace.socketio.register('disconnect', disconnectWebsocket);
+        namespace.socketIoService.register('notes', renderNotes);
+        namespace.socketIoService.register('connect', connectWebsocket);
+        namespace.socketIoService.register('disconnect', disconnectWebsocket);
     }
 
     function connectWebsocket() {
