@@ -17,7 +17,7 @@ This site was build with EMCA Script 6, testet with  Chromium 53 and Firefox 49 
 * OrderBy: create date, finished date, due date, priority
 * create new notes
 * edit notes
-* immediate notification from other clients
+* immediate notification by changes from other clients
 * browser history working in SPA
 * LocalStorageService und ServerStorageService interchangeable (not automatically)
 
