@@ -51,7 +51,7 @@ jQuery.noConflict();
     }
 
     function updateOrder() {
-        var fieldName = $(".filterItem:checked").prop('id').substr('orderBy'.length).toLowerCase();
+        var fieldName = $(".filterItem:checked").prop('id').substr('orderBy-'.length);
         namespace.notesService.orderByField(fieldName);
     }
 
