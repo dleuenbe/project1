@@ -1,7 +1,7 @@
 # Notes - Project1 cas-fee 2016-2
 
 ## Purpose
-The applied basics from the CAS course front end engineering are applied with this project.
+A webproject to apply the basics from the CAS frontend engineering.
 
 ## Install instructions
 npm install

@@ -1,8 +1,7 @@
 {
-  "name": "notesApp",
+  "name": "notes",
   "version": "1.0.0",
-  "private": true,
-  "description": "NotesApp, Project 1, HSR, CAS FEE 2016-2",
+  "description": "Notes Website, Project 1, HSR, CAS FEE 2016-2",
   "repository": {
     "type": "git",
     "url": "https://github.com/dleuenbe/project1.git"
