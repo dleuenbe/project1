@@ -1,7 +1,14 @@
 {
-  "name": "Notes-project1",
-  "version": "0.8.0",
-  "private": true,
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "Notes Website, Project 1, HSR, CAS FEE 2016-2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dleuenbe/project1.git"
+  },
+  "author": "David Leuenberger",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/dleuenbe/project1.git",
   "scripts": {
     "start": "node ./bin/www"
   },
